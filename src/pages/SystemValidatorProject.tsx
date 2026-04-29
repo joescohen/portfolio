@@ -9,8 +9,8 @@ import { Agents } from '../projects/system-validator/tabs/Agents'
 
 const TABS = [
   { id: 'overview', label: 'Overview' },
-  { id: 'architecture', label: 'System Design' },
-  { id: 'agents', label: 'Agent Interfaces' },
+  { id: 'architecture', label: 'Design' },
+  { id: 'agents', label: 'Agents' },
 ]
 
 const TAB_COMPONENTS: Record<string, React.ComponentType> = {
@@ -113,7 +113,7 @@ export function SystemValidatorProject() {
         </div>
 
         {/* Tabs flush at base of hero */}
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+        <div className="max-w-6xl mx-auto">
           <TabNav tabs={TABS} activeTab={activeTab} onChange={setActiveTab} />
         </div>
       </div>
