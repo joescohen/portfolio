@@ -21,41 +21,6 @@ const methodologies = [
   },
 ]
 
-type StageProps = {
-  label: string
-  sub: string
-  badge?: string
-  accent?: string
-}
-
-function Stage({ label, sub, badge, accent = 'violet' }: StageProps) {
-  const colors: Record<string, string> = {
-    violet: 'bg-violet-950/60 border-violet-700/50 text-violet-300',
-    indigo: 'bg-indigo-950/60 border-indigo-700/50 text-indigo-300',
-    slate: 'bg-slate-800/60 border-slate-600/50 text-slate-300',
-  }
-  return (
-    <div className={`rounded-lg border px-4 py-3 ${colors[accent]}`}>
-      <div className="text-xs font-bold uppercase tracking-wider mb-0.5">{label}</div>
-      <div className="text-white/40 text-xs">{sub}</div>
-      {badge && (
-        <div className="mt-2 inline-block bg-white/10 text-white/60 text-xs px-2 py-0.5 rounded font-mono">
-          {badge}
-        </div>
-      )}
-    </div>
-  )
-}
-
-function GateMarker({ label }: { label: string }) {
-  return (
-    <div className="flex items-center gap-3 py-1">
-      <div className="w-px h-5 bg-violet-700/50 mx-auto" style={{ marginLeft: 63 }} />
-      <div className="absolute left-0 right-0 flex justify-center pointer-events-none">
-      </div>
-    </div>
-  )
-}
 
 const CHECKPOINT_CONTRACT = `## CHECKPOINT: SPEC_COMPLETE
 - purpose: AI travel planner that converts trip ideas into structured itineraries
@@ -264,7 +229,6 @@ export function Architecture() {
           {CHECKPOINT_CONTRACT.split('\n').map((line, i) => {
             const isHeader = line.startsWith('##')
             const isKey = line.trimStart().startsWith('-') && line.includes(':') && !line.includes('  -')
-            const isValue = line.includes(':') && !line.trimStart().startsWith('#') && !line.trimStart().startsWith('-')
             return (
               <span key={i} className="block">
                 {isHeader ? (
