@@ -28,6 +28,14 @@ const projects = [
     tags: ['Next.js', 'React', 'Claude AI', 'SQLite'],
     thumbClass: 'bg-gradient-to-br from-teal-600 to-teal-800',
   },
+  {
+    id: 'system-validator',
+    href: '/projects/system-validator',
+    title: 'System Validator',
+    description: 'Multi-agent QA pipeline — Claude Code skill',
+    tags: ['Claude Code', 'Multi-Agent', 'Systems Engineering', 'TypeScript'],
+    thumbClass: 'bg-gradient-to-br from-violet-900 to-indigo-900',
+  },
 ]
 
 const TABS = [
