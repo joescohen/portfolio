@@ -7,8 +7,8 @@ export function Nav() {
         Joe Cohen
       </Link>
       <div className="ml-auto flex items-center gap-6">
-        <Link to="/" className="text-white/60 hover:text-white text-sm transition-colors">
-          Projects
+        <Link to="/about" className="text-white/60 hover:text-white text-sm transition-colors">
+          About
         </Link>
       </div>
     </nav>
