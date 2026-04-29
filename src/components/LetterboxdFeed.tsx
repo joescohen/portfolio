@@ -77,8 +77,7 @@ export function LetterboxdFeed() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const rssUrl = 'https://letterboxd.com/jsc6121/rss/'
-    fetch(`https://corsproxy.io/?${encodeURIComponent(rssUrl)}`)
+    fetch('/api/rss')
       .then((r) => r.text())
       .then((xml) => {
         setEntries(parseRSS(xml))
