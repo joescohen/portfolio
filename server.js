@@ -30,8 +30,8 @@ app.get('/api/rss', async (req, res) => {
 // Serve Vite build
 app.use(express.static(path.join(__dirname, 'dist')))
 
-// SPA fallback
-app.get('*', (_req, res) => {
+// SPA fallback (app.use avoids Express 5's broken wildcard syntax)
+app.use((_req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
