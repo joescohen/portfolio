@@ -2,6 +2,12 @@ import { SectionLabel } from '../../../components/SectionLabel'
 
 const methodologies = [
   {
+    name: 'User Directive Priority',
+    subtitle: 'Explicit requests are mandatory, not weighted',
+    desc: "Explicit requirements in the invocation message are locked as mandatory test dimensions before any agent runs. They are a distinct field — not soft hints that feed risk scoring. Each directive generates required T1 rows; executors apply them to every T1 cluster. The Conductor confirms them out loud before dispatch.",
+    items: ['user_directives ≠ user_concerns — different field, different treatment', '"Check mobile" → all T1 rows run at 375px + 768px + 1280px', 'user_directives_covered: false is a blocking gate error', 'Conductor acknowledges directives even when told "just go"'],
+  },
+  {
     name: 'STAMP Risk Analysis',
     subtitle: 'Systems Theoretic Accident Model & Processes',
     desc: 'Traditional checklists look for component failures. STAMP looks for unsafe control — the interactions between components and states that produce hazards. The Spec Agent maps every component in scope against every relevant state transition, producing RISK-N entries that become the highest-priority test rows.',
@@ -11,7 +17,7 @@ const methodologies = [
     name: "NASA's 4 Verification Methods",
     subtitle: 'SE-standard verification taxonomy',
     desc: 'Every row in the validation matrix uses one of the four verification methods from NASA systems engineering standards. This prevents method bias — a system validated only by demonstration misses data invariants; one validated only by inspection misses runtime behavior.',
-    items: ['Analysis — Query data, parse logs, compare values', 'Inspection — Read DOM, check styles, code review', 'Demonstration — Click, navigate, operate as a user', 'Test — Controlled experiment with measurable result'],
+    items: ['Analysis — Query data, parse logs, check DOM properties', 'Inspection — Read DOM, check styles, code review', 'Demonstration — Click, navigate, resize viewport, operate as user', 'Test — Controlled experiment with measurable result'],
   },
   {
     name: 'Tiered Requirements',
@@ -38,11 +44,11 @@ export function Architecture() {
       <SectionLabel>Systems Engineering Methodology</SectionLabel>
       <p className="text-slate-600 text-sm leading-relaxed mb-8 max-w-2xl">
         The skill's test strategy is derived from formal SE methods — not ad-hoc coverage intuition.
-        Three methodologies underpin every layer of the pipeline, from how requirements are extracted
-        to how test rows are written and executed.
+        Four principles underpin every layer of the pipeline, from how user intent is honored
+        to how requirements are extracted, test rows are written, and execution is ordered.
       </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-14">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-14">
         {methodologies.map((m) => (
           <div key={m.name} className="bg-slate-950 rounded-xl p-6">
             <div className="text-violet-400 text-xs font-bold uppercase tracking-widest mb-1">{m.name}</div>
