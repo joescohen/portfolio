@@ -5,7 +5,7 @@
     "buildCommand": "pnpm install && pnpm build"
   },
   "deploy": {
-    "startCommand": "node server.js",
+    "startCommand": "npx serve dist -s -l ${PORT:-3000}",
     "restartPolicyType": "ON_FAILURE"
   }
 }
