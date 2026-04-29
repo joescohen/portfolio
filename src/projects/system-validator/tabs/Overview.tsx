@@ -23,10 +23,6 @@ const features = [
 
 const principles = [
   {
-    label: 'User directives are mandatory, not weighted',
-    desc: "Explicit requirements in the invocation message — 'check mobile', 'test the login flow' — are locked as mandatory test dimensions before anything else runs. They generate required T1 rows and apply to every executor. The Conductor confirms them out loud before dispatch, even when told 'don't ask questions / just go.'",
-  },
-  {
     label: 'STAMP Risk Model',
     desc: 'Most software bugs are interaction bugs, not single-component failures. The Spec Agent uses a STAMP-inspired lens: for every component in scope, identify the control actions and the states that could make them hazardous.',
   },
