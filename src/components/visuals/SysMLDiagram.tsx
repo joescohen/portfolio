@@ -19,10 +19,12 @@ export function SysMLDiagram() {
         className="w-full max-w-lg"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="SysML block definition diagram showing ANGARS system architecture"
       >
         <defs>
           <marker
-            id="arrowhead"
+            id="sysml-arrowhead"
             markerWidth="8"
             markerHeight="6"
             refX="8"
@@ -42,7 +44,7 @@ export function SysMLDiagram() {
             y2={y2}
             stroke="#f97316"
             strokeWidth="1.5"
-            markerEnd="url(#arrowhead)"
+            markerEnd="url(#sysml-arrowhead)"
           />
         ))}
 

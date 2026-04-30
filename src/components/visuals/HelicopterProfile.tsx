@@ -12,6 +12,8 @@ export function HelicopterProfile() {
         className="w-full max-w-lg"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="Garra compound helicopter side profile with performance data"
       >
         {/* Rotor disc — animated */}
         <g style={{ transformOrigin: '260px 100px', animation: 'rotor-spin 8s linear infinite' }}>

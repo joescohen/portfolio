@@ -1,14 +1,19 @@
-import { useState, useEffect, useRef, Suspense, lazy, type ComponentType } from 'react'
+import { useState, useEffect, useRef, type ComponentType } from 'react'
 import { Link } from 'react-router-dom'
 import { Nav } from '../components/Nav'
 import { LetterboxdFeed } from '../components/LetterboxdFeed'
 import { SysMLDiagram } from '../components/visuals/SysMLDiagram'
 import { HelicopterProfile } from '../components/visuals/HelicopterProfile'
 import { PipelineFlow } from '../components/visuals/PipelineFlow'
+import { VoyageGlobe } from '../components/visuals/VoyageGlobe'
 
-const VoyageGlobe = lazy(() =>
-  import('../components/visuals/VoyageGlobe').then((m) => ({ default: m.VoyageGlobe })),
-)
+function VoyageVisual() {
+  return (
+    <div className="w-full h-full bg-navy-900">
+      <VoyageGlobe className="w-full h-full" />
+    </div>
+  )
+}
 
 interface Project {
   id: string
@@ -46,13 +51,7 @@ const projects: Project[] = [
     category: 'Web Development',
     description: 'AI-powered travel planner — Full-stack Next.js',
     tags: ['Next.js', 'React', 'Claude AI', 'SQLite'],
-    Visual: () => (
-      <div className="w-full h-full bg-navy-900">
-        <Suspense fallback={<div className="w-full h-full bg-navy-900" />}>
-          <VoyageGlobe className="w-full h-full" />
-        </Suspense>
-      </div>
-    ),
+    Visual: VoyageVisual,
   },
   {
     id: 'system-validator',

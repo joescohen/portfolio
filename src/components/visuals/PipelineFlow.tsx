@@ -14,13 +14,12 @@ export function PipelineFlow() {
         className="w-full max-w-2xl"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="System Validator agent pipeline showing 5 stages with parallel execution"
       >
         <defs>
-          <marker id="pipe-arrow" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+          <marker id="pipeline-arrow" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
             <polygon points="0 0, 6 2.5, 0 5" fill="rgba(255,255,255,0.3)" />
-          </marker>
-          <marker id="gate-arrow" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
-            <polygon points="0 0, 6 2.5, 0 5" fill="#f97316" />
           </marker>
         </defs>
 
@@ -79,7 +78,7 @@ export function PipelineFlow() {
                   y2={y}
                   stroke="rgba(255,255,255,0.2)"
                   strokeWidth="1"
-                  markerEnd="url(#pipe-arrow)"
+                  markerEnd="url(#pipeline-arrow)"
                 />
               )}
             </g>
@@ -87,12 +86,12 @@ export function PipelineFlow() {
         })}
 
         {/* Fan-out from Matrix Agent to Executor — 3 parallel lines */}
-        <line x1={288} y1={100} x2={432} y2={100} stroke="rgba(255,255,255,0.15)" strokeWidth="1" markerEnd="url(#pipe-arrow)" />
-        <line x1={288} y1={110} x2={432} y2={110} stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#pipe-arrow)" />
-        <line x1={288} y1={120} x2={432} y2={120} stroke="rgba(255,255,255,0.15)" strokeWidth="1" markerEnd="url(#pipe-arrow)" />
+        <line x1={288} y1={100} x2={432} y2={100} stroke="rgba(255,255,255,0.15)" strokeWidth="1" markerEnd="url(#pipeline-arrow)" />
+        <line x1={288} y1={110} x2={432} y2={110} stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#pipeline-arrow)" />
+        <line x1={288} y1={120} x2={432} y2={120} stroke="rgba(255,255,255,0.15)" strokeWidth="1" markerEnd="url(#pipeline-arrow)" />
 
         {/* Executor to Reporter — reconverge */}
-        <line x1={488} y1={110} x2={582} y2={110} stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#pipe-arrow)" />
+        <line x1={488} y1={110} x2={582} y2={110} stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#pipeline-arrow)" />
 
         {/* Gate markers */}
         {[
