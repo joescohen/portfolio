@@ -6,7 +6,7 @@ const CALLOUTS = [
 
 export function HelicopterProfile() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-navy-900 relative overflow-hidden">
+    <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
       <svg
         viewBox="0 0 600 360"
         className="w-full max-w-lg"

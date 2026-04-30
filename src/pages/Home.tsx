@@ -9,7 +9,7 @@ import { VoyageGlobe } from '../components/visuals/VoyageGlobe'
 
 function VoyageVisual() {
   return (
-    <div className="w-full h-full bg-navy-900">
+    <div className="w-full h-full">
       <VoyageGlobe className="w-full h-full" />
     </div>
   )
@@ -97,7 +97,7 @@ function useReveal() {
 function ProjectStrip({ project, index }: { project: Project; index: number }) {
   const isEven = index % 2 === 1
   const num = `#${String(index + 1).padStart(2, '0')}`
-  const bgClass = isEven ? 'bg-zinc-50' : 'bg-white'
+  const bgClass = isEven ? 'bg-slate-900' : 'bg-navy-900'
   const textReveal = isEven ? 'reveal-from-right' : 'reveal-from-left'
   const visualReveal = isEven ? 'reveal-from-left reveal-delay-100' : 'reveal-from-right reveal-delay-100'
 
@@ -105,24 +105,24 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
     <div
       className={`${textReveal} flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-10 lg:py-0`}
     >
-      <span className="text-zinc-400 text-xs font-semibold mb-2">{num}</span>
+      <span className="text-white/30 text-xs font-semibold mb-2">{num}</span>
       <span className="text-orange-500 text-xs font-semibold uppercase tracking-[0.12em] mb-4">
         {project.category}
       </span>
       <h3
-        className="text-4xl lg:text-5xl text-navy mb-3 leading-[1.05] tracking-tight"
+        className="text-4xl lg:text-5xl text-white mb-3 leading-[1.05] tracking-tight"
         style={{ fontFamily: "'DM Serif Display', serif" }}
       >
         {project.title}
       </h3>
-      <p className="text-zinc-500 text-sm leading-relaxed mb-6 max-w-md">
+      <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-md">
         {project.description}
       </p>
       <div className="flex flex-wrap gap-1.5 mb-6">
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="text-xs text-zinc-500 bg-zinc-100 px-2.5 py-1 rounded-sm"
+            className="text-xs text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-sm"
           >
             {tag}
           </span>
@@ -130,7 +130,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
       </div>
       <Link
         to={project.href}
-        className="group/link text-sm text-zinc-400 hover:text-orange-500 transition-colors inline-flex items-center gap-1"
+        className="group/link text-sm text-white/40 hover:text-orange-500 transition-colors inline-flex items-center gap-1"
       >
         View project
         <span className="inline-block transition-transform group-hover/link:translate-x-1 ease-spring">
@@ -147,7 +147,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
   )
 
   return (
-    <div className={`${bgClass} border-b border-zinc-100`}>
+    <div className={`${bgClass} border-b border-white/5`}>
       <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
         {isEven ? (
           <>

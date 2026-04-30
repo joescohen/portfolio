@@ -8,7 +8,7 @@ const STAGES = [
 
 export function PipelineFlow() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-navy-900 p-6">
+    <div className="w-full h-full flex items-center justify-center p-6">
       <svg
         viewBox="0 0 700 280"
         className="w-full max-w-2xl"

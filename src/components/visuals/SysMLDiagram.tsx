@@ -13,7 +13,7 @@ const CONNECTIONS: [number, number, number, number][] = [
 
 export function SysMLDiagram() {
   return (
-    <div className="w-full h-full flex items-center justify-center bg-navy-900 p-6">
+    <div className="w-full h-full flex items-center justify-center p-6">
       <svg
         viewBox="0 0 600 320"
         className="w-full max-w-lg"
