@@ -15,7 +15,7 @@ test('renders name', () => {
   expect(screen.getByText('Joe Cohen')).toBeInTheDocument()
 })
 
-test('renders Projects link', () => {
+test('renders About link', () => {
   renderNav()
-  expect(screen.getByText('Projects')).toBeInTheDocument()
+  expect(screen.getByText('About')).toBeInTheDocument()
 })
