@@ -103,7 +103,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
 
   const textPanel = (
     <div
-      className={`${textReveal} flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-10 lg:py-0`}
+      className={`${textReveal} h-full flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-10 lg:py-0`}
     >
       <span className="text-white/30 text-xs font-semibold mb-2">{num}</span>
       <span className="text-orange-500 text-xs font-semibold uppercase tracking-[0.12em] mb-4">
@@ -141,7 +141,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
   )
 
   const visualPanel = (
-    <div className={`${visualReveal} min-h-[200px] lg:min-h-0`}>
+    <div className={`${visualReveal} h-full min-h-[200px] lg:min-h-0`}>
       <project.Visual />
     </div>
   )
