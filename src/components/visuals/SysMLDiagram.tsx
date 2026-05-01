@@ -84,7 +84,7 @@ export function SysMLDiagram() {
   return (
     <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
       <svg
-        viewBox="0 0 740 370"
+        viewBox="0 0 740 395"
         className="w-full max-h-full"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -188,7 +188,7 @@ export function SysMLDiagram() {
         ))}
 
         {/* Diagram label */}
-        <text x={370} y={354}
+        <text x={370} y={382}
           textAnchor="middle"
           fill="rgba(255,255,255,0.2)" fontSize="10"
           fontFamily="'DM Sans', sans-serif" letterSpacing="0.12em">
