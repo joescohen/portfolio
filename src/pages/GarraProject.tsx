@@ -29,13 +29,13 @@ export function GarraProject() {
         <div className="absolute inset-0 bg-blueprint opacity-20 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-red-950/60 pointer-events-none" />
         <div className="relative z-10">
-        <Link to="/" viewTransition className="font-mono text-white/40 text-xs hover:text-white/70 mb-4 block transition-colors tracking-wide">
+        <Link to="/" viewTransition className="text-white/40 text-xs hover:text-white/70 mb-4 block transition-colors">
           ← Projects
         </Link>
-        <p className="font-mono text-xs tracking-[0.18em] uppercase text-yellow-400/70 mb-2">
+        <p className="text-xs font-bold uppercase tracking-widest text-yellow-400/70 mb-2">
           University of Maryland · 38th VFS Student Design Competition · 2021
         </p>
-        <h1 className="text-4xl text-white tracking-tight mb-1" style={{ fontFamily: "'DM Serif Display', serif" }}>
+        <h1 className="text-4xl font-extrabold text-white tracking-tight mb-1">
           Garra
         </h1>
         <p className="text-white/75 text-sm mb-5">

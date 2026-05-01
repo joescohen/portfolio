@@ -124,14 +124,11 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
     <div
       className={`${textReveal} h-full flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-10 lg:py-12`}
     >
-      <span className="text-white/30 text-xs font-mono mb-2">{num}</span>
-      <span className="text-orange-500 text-xs font-mono uppercase tracking-[0.18em] mb-4">
+      <span className="text-white/30 text-xs mb-2">{num}</span>
+      <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4">
         {project.category}
       </span>
-      <h3
-        className="text-4xl lg:text-5xl text-white mb-3 leading-[1.05] tracking-tight"
-        style={{ fontFamily: "'DM Serif Display', serif" }}
-      >
+      <h3 className="text-4xl lg:text-5xl font-extrabold text-white mb-3 leading-[1.05] tracking-tight">
         {project.title}
       </h3>
       <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-md">
@@ -236,13 +233,10 @@ export function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-transparent to-navy pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 pt-16 pb-0">
-          <p className="text-orange-500 text-xs font-mono uppercase tracking-[0.18em] mb-4">
+          <p className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4">
             Portfolio
           </p>
-          <h1
-            className="text-5xl sm:text-6xl text-white leading-[0.95] tracking-tight mb-3"
-            style={{ fontFamily: "'DM Serif Display', serif" }}
-          >
+          <h1 className="text-5xl sm:text-6xl font-extrabold text-white leading-[0.95] tracking-tight mb-3">
             Joe Cohen
           </h1>
           <p className="text-white/70 text-base mb-1">

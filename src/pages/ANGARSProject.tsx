@@ -41,13 +41,13 @@ export function ANGARSProject() {
         <div className="absolute inset-0 bg-blueprint opacity-30 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/60 pointer-events-none" />
         <div className="relative z-10">
-        <Link to="/" viewTransition className="font-mono text-white/40 text-xs hover:text-white/70 mb-4 block transition-colors tracking-wide">
+        <Link to="/" viewTransition className="text-white/40 text-xs hover:text-white/70 mb-4 block transition-colors">
           ← Projects
         </Link>
-        <p className="font-mono text-xs tracking-[0.18em] uppercase text-white/50 mb-2">
+        <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">
           Johns Hopkins University · Systems Engineering Capstone · Spring 2025
         </p>
-        <h1 className="text-4xl text-white tracking-tight mb-1" style={{ fontFamily: "'DM Serif Display', serif" }}>
+        <h1 className="text-4xl font-extrabold text-white tracking-tight mb-1">
           ANGARS
         </h1>
         <p className="text-white/75 text-sm mb-5">
