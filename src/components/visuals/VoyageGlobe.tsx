@@ -59,8 +59,8 @@ export function VoyageGlobe({ className = 'w-full h-full' }: VoyageGlobeProps) {
         gl={{ alpha: true, antialias: true }}
         style={{ background: 'transparent' }}
       >
-        <ambientLight intensity={0.2} />
-        <directionalLight position={[5, 3, 5]} intensity={2.2} color="#ffffff" />
+        <ambientLight intensity={0.55} />
+        <directionalLight position={[2, 2, 5]} intensity={1.8} color="#ffe8c0" />
         <Suspense fallback={null}>
           <GlobeScene />
         </Suspense>
