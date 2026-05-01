@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Home } from './pages/Home'
 import { About } from './pages/About'
 import { ANGARSProject } from './pages/ANGARSProject'
@@ -7,18 +7,16 @@ import { GarraProject } from './pages/GarraProject'
 import { SystemValidatorProject } from './pages/SystemValidatorProject'
 import { NotFound } from './pages/NotFound'
 
+const router = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: '/about', element: <About /> },
+  { path: '/projects/angars', element: <ANGARSProject /> },
+  { path: '/projects/voyage', element: <VoyageProject /> },
+  { path: '/projects/garra', element: <GarraProject /> },
+  { path: '/projects/system-validator', element: <SystemValidatorProject /> },
+  { path: '*', element: <NotFound /> },
+])
+
 export function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/projects/angars" element={<ANGARSProject />} />
-        <Route path="/projects/voyage" element={<VoyageProject />} />
-        <Route path="/projects/garra" element={<GarraProject />} />
-        <Route path="/projects/system-validator" element={<SystemValidatorProject />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  )
+  return <RouterProvider router={router} />
 }
