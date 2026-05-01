@@ -5,6 +5,7 @@ import { ANGARSProject } from './pages/ANGARSProject'
 import { VoyageProject } from './pages/VoyageProject'
 import { GarraProject } from './pages/GarraProject'
 import { SystemValidatorProject } from './pages/SystemValidatorProject'
+import { NotFound } from './pages/NotFound'
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
         <Route path="/projects/voyage" element={<VoyageProject />} />
         <Route path="/projects/garra" element={<GarraProject />} />
         <Route path="/projects/system-validator" element={<SystemValidatorProject />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
