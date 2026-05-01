@@ -216,17 +216,16 @@ export function Home() {
 
       {/* Content */}
       <div ref={contentRef}>
-        {activeTab === 'projects' ? (
-          <div>
-            {projects.map((p, i) => (
-              <ProjectStrip key={p.id} project={p} index={i} />
-            ))}
-          </div>
-        ) : (
+        <div style={{ display: activeTab === 'projects' ? 'block' : 'none' }}>
+          {projects.map((p, i) => (
+            <ProjectStrip key={p.id} project={p} index={i} />
+          ))}
+        </div>
+        <div style={{ display: activeTab === 'films' ? 'block' : 'none' }}>
           <div className="max-w-5xl mx-auto px-6 lg:px-12 py-12">
             <LetterboxdFeed />
           </div>
-        )}
+        </div>
       </div>
     </div>
   )
