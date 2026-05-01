@@ -106,10 +106,7 @@ const highlights = [
 function SectionHeading({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <span
-        className="text-xs font-bold uppercase tracking-widest text-orange-500"
-        style={{ fontFamily: "'DM Sans', sans-serif" }}
-      >
+      <span className="text-xs font-bold uppercase tracking-widest text-orange-500">
         {children}
       </span>
       <div className="flex-1 h-px bg-slate-200" />
@@ -127,66 +124,65 @@ export function About() {
         <div className="absolute inset-0 bg-blueprint opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-transparent to-navy pointer-events-none" />
         <div className="relative z-10">
-        <p className="font-mono text-xs tracking-[0.2em] uppercase text-orange-500 mb-3">
-          About Me
-        </p>
-        <h1
-          className="text-5xl font-normal text-white mb-3 leading-tight"
-          style={{ fontFamily: "'DM Serif Display', serif" }}
-        >
-          Joe Cohen
-        </h1>
-        <p className="text-white/80 text-base mb-1">
-          Principal Systems Engineer · Northrop Grumman
-        </p>
-        <p className="font-mono text-white/40 text-xs tracking-wide mb-6">
-          MEng Systems Engineering, Johns Hopkins &nbsp;·&nbsp; BS Aerospace Engineering, University of Maryland
-        </p>
-        <div className="flex flex-wrap gap-4 text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
-          <a
-            href="mailto:jsc6121@gmail.com"
-            className="flex items-center gap-1.5 text-white/60 hover:text-orange-400 transition-colors"
+          <p className="font-mono text-xs tracking-[0.2em] uppercase text-orange-500 mb-3">
+            About Me
+          </p>
+          <h1
+            className="text-5xl font-normal text-white mb-3 leading-tight"
+            style={{ fontFamily: "'DM Serif Display', serif" }}
           >
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            jsc6121@gmail.com
-          </a>
-          <a
-            href="https://linkedin.com/in/josephscohen"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-white/60 hover:text-orange-400 transition-colors"
-          >
-            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-            linkedin.com/in/josephscohen
-          </a>
-          <span className="flex items-center gap-1.5 text-white/60">
-            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            Baltimore, MD
-          </span>
+            Joe Cohen
+          </h1>
+          <p className="text-white/80 text-base mb-1">
+            Principal Systems Engineer · Northrop Grumman
+          </p>
+          <p className="font-mono text-white/40 text-xs tracking-wide mb-6">
+            MEng Systems Engineering, Johns Hopkins &nbsp;·&nbsp; BS Aerospace Engineering, University of Maryland
+          </p>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <a
+              href="mailto:jsc6121@gmail.com"
+              className="flex items-center gap-1.5 text-white/60 hover:text-orange-400 transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              jsc6121@gmail.com
+            </a>
+            <a
+              href="https://linkedin.com/in/josephscohen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-white/60 hover:text-orange-400 transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              linkedin.com/in/josephscohen
+            </a>
+            <span className="flex items-center gap-1.5 text-white/60">
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              Baltimore, MD
+            </span>
+          </div>
         </div>
-        </div>{/* end z-10 */}
       </div>
 
       {/* Highlight stats bar */}
       <div className="bg-navy-light border-b border-white/10">
-        <div className="max-w-5xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
-          {highlights.map((h) => (
-            <div key={h.label} className="py-4 px-6 first:pl-0">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12 grid grid-cols-2 md:grid-cols-4">
+          {highlights.map((h, idx) => (
+            <div key={h.label} className={`py-4 px-6 ${idx === 0 ? 'pl-0' : idx % 2 === 1 ? 'border-l border-white/10' : 'md:border-l md:border-white/10'}`}>
               <div
                 className="text-2xl font-bold text-orange-400 leading-none mb-1"
                 style={{ fontFamily: "'DM Serif Display', serif" }}
               >
                 {h.value}
               </div>
-              <div className="text-white/50 text-xs uppercase tracking-wide"
-                   style={{ fontFamily: "'DM Sans', sans-serif" }}>
+              <div className="text-white/50 text-xs uppercase tracking-wide">
                 {h.label}
               </div>
             </div>
@@ -204,10 +200,7 @@ export function About() {
             {/* Summary */}
             <div className="mb-12">
               <SectionHeading>Professional Summary</SectionHeading>
-              <p
-                className="text-slate-600 leading-relaxed text-[15px]"
-                style={{ fontFamily: "'DM Sans', sans-serif" }}
-              >
+              <p className="text-slate-600 leading-relaxed text-[15px]">
                 Principal Systems Engineer with 6+ years at Northrop Grumman across MBSE architecture,
                 payload integration & test, and systems design on DoD defense programs. Currently serving
                 as Subsystem Deputy Architect leading 40 engineers through concurrent I&T campaigns and
@@ -238,13 +231,10 @@ export function About() {
 
                       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-2">
                         <div>
-                          <h3
-                            className="font-semibold text-navy text-[15px] leading-snug"
-                            style={{ fontFamily: "'DM Sans', sans-serif" }}
-                          >
+                          <h3 className="font-semibold text-navy text-[15px] leading-snug">
                             {job.title}
                           </h3>
-                          <p className="text-slate-500 text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                          <p className="text-slate-500 text-sm">
                             {job.company} · {job.location}
                           </p>
                         </div>
@@ -254,7 +244,6 @@ export function About() {
                               ? 'bg-orange-100 text-orange-600'
                               : 'bg-slate-100 text-slate-500'
                           }`}
-                          style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {job.period}
                         </span>
@@ -265,7 +254,6 @@ export function About() {
                           <li
                             key={j}
                             className="text-slate-600 text-sm leading-relaxed flex gap-2"
-                            style={{ fontFamily: "'DM Sans', sans-serif" }}
                           >
                             <span className="text-slate-300 mt-1.5 shrink-0">—</span>
                             <span>{b}</span>
@@ -284,21 +272,17 @@ export function About() {
               <div className="space-y-4">
                 <div className="border border-slate-200 rounded-xl p-5 hover:border-navy transition-colors group">
                   <div className="flex items-start justify-between gap-3 mb-2">
-                    <h3
-                      className="font-semibold text-navy text-[15px] group-hover:text-orange-500 transition-colors"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    >
+                    <h3 className="font-semibold text-navy text-[15px] group-hover:text-orange-500 transition-colors">
                       VFS Student Design Competition — 1st Place
                     </h3>
                     <Link
                       to="/projects/garra"
                       className="text-xs text-orange-500 hover:underline shrink-0 mt-0.5"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
                     >
                       View project →
                     </Link>
                   </div>
-                  <p className="text-slate-600 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     Led a 9-person team to win the Vertical Flight Society's 38th Annual Competition
                     (Boeing/Altair); designed "Garra," a fully autonomous thrust-compounding helicopter
                     for medical supply delivery.
@@ -306,13 +290,10 @@ export function About() {
                 </div>
 
                 <div className="border border-slate-200 rounded-xl p-5 hover:border-navy transition-colors">
-                  <h3
-                    className="font-semibold text-navy text-[15px] mb-2"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
+                  <h3 className="font-semibold text-navy text-[15px] mb-2">
                     SSPIDR — Space Solar Power
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                  <p className="text-slate-600 text-sm leading-relaxed">
                     Contributed to successful RF-to-rectenna on-orbit energy transmission milestone on a
                     DoD-sponsored program; presented results at SATELLITE 2024 (SGx session, Space Generation
                     Advisory Council).
@@ -328,23 +309,17 @@ export function About() {
                 {education.map((ed, i) => (
                   <div key={i} className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
                     <div>
-                      <h3
-                        className="font-semibold text-navy text-[15px]"
-                        style={{ fontFamily: "'DM Sans', sans-serif" }}
-                      >
+                      <h3 className="font-semibold text-navy text-[15px]">
                         {ed.degree}
                       </h3>
-                      <p className="text-slate-500 text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+                      <p className="text-slate-500 text-sm">
                         {ed.school}
                         {ed.honors && (
                           <span className="ml-2 text-orange-500 font-medium">{ed.honors}</span>
                         )}
                       </p>
                     </div>
-                    <span
-                      className="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full self-start whitespace-nowrap"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    >
+                    <span className="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full self-start whitespace-nowrap">
                       {ed.period}
                     </span>
                   </div>
@@ -363,10 +338,7 @@ export function About() {
                 <div className="space-y-5">
                   {skillGroups.map((group) => (
                     <div key={group.category}>
-                      <p
-                        className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2"
-                        style={{ fontFamily: "'DM Sans', sans-serif" }}
-                      >
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
                         {group.category}
                       </p>
                       <div className="flex flex-wrap gap-1.5">
@@ -374,7 +346,6 @@ export function About() {
                           <span
                             key={skill}
                             className={`text-xs px-2.5 py-1 rounded-full font-medium ${group.color}`}
-                            style={{ fontFamily: "'DM Sans', sans-serif" }}
                           >
                             {skill}
                           </span>
@@ -392,7 +363,6 @@ export function About() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-navy text-white text-sm font-medium py-2.5 rounded-lg hover:bg-navy-light transition-colors"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />

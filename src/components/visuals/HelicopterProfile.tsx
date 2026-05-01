@@ -7,7 +7,7 @@ const FRICTION = 0.96
 const HIT_RADIUS = 195  // SVG-unit radius around rotor center
 
 const CALLOUTS = [
-  { label: '135 kt', x: '72%', y: '28%', align: 'left' as const },
+  { label: '135 kt', x: '65%', y: '28%', align: 'left' as const },
   { label: '50 kg payload', x: '58%', y: '72%', align: 'left' as const },
   { label: '1st Place VFS', x: '18%', y: '22%', align: 'right' as const },
 ]
@@ -147,7 +147,7 @@ export function HelicopterProfile() {
         <line x1={150} y1={260} x2={530} y2={260} stroke="rgba(255,255,255,0.15)" strokeWidth="0.75" />
         <line x1={150} y1={255} x2={150} y2={265} stroke="rgba(255,255,255,0.2)" strokeWidth="0.75" />
         <line x1={530} y1={255} x2={530} y2={265} stroke="rgba(255,255,255,0.2)" strokeWidth="0.75" />
-        <text x={340} y={275} textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="10" fontFamily="'DM Sans', sans-serif">
+        <text x={340} y={275} textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="10" fontFamily="'DM Sans', sans-serif">
           GARRA — COMPOUND HELICOPTER
         </text>
       </svg>

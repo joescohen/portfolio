@@ -8,10 +8,10 @@ const STAGES = [
 
 export function PipelineFlow() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-6">
+    <div className="w-full h-full flex items-center justify-center p-4">
       <svg
         viewBox="0 0 700 280"
-        className="w-full max-w-2xl"
+        className="w-full"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         role="img"
@@ -123,7 +123,7 @@ export function PipelineFlow() {
           x={350}
           y={240}
           textAnchor="middle"
-          fill="rgba(255,255,255,0.2)"
+          fill="rgba(255,255,255,0.35)"
           fontSize="11"
           fontFamily="'DM Sans', sans-serif"
           letterSpacing="0.15em"

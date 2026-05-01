@@ -92,7 +92,7 @@ export function LetterboxdFeed() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-navy">Films</h2>
+        <h2 className="text-xl font-bold text-navy">Recently Watched</h2>
         <a
           href="https://letterboxd.com/jsc6121/"
           target="_blank"

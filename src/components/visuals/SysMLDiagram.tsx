@@ -76,8 +76,8 @@ const ACTORS: ActorDef[] = [
 ]
 
 const CALLOUTS = [
-  { label: '189 traceable reqs', x: '74%', y: '10%' },
-  { label: 'Active Fusion', x: '74%', y: '82%' },
+  { label: '189 traceable reqs', right: '4%', top: '10%' },
+  { label: 'Active Fusion', right: '4%', top: '73%' },
 ]
 
 export function SysMLDiagram() {
@@ -180,7 +180,7 @@ export function SysMLDiagram() {
               fill="rgba(249,115,22,0.65)" />
             <text x={a.plx} y={a.ply}
               textAnchor={a.plAnchor}
-              fill="rgba(255,255,255,0.25)" fontSize="8"
+              fill="rgba(255,255,255,0.4)" fontSize="8"
               fontFamily="'DM Sans', sans-serif">
               {a.pl}
             </text>
@@ -190,7 +190,7 @@ export function SysMLDiagram() {
         {/* Diagram label */}
         <text x={370} y={382}
           textAnchor="middle"
-          fill="rgba(255,255,255,0.2)" fontSize="10"
+          fill="rgba(255,255,255,0.35)" fontSize="10"
           fontFamily="'DM Sans', sans-serif" letterSpacing="0.12em">
           BDD — ANGARS PHYSICAL ARCHITECTURE
         </text>
@@ -198,7 +198,7 @@ export function SysMLDiagram() {
 
       {/* Floating callout badges */}
       {CALLOUTS.map((c) => (
-        <div key={c.label} className="absolute" style={{ left: c.x, top: c.y }}>
+        <div key={c.label} className="absolute" style={{ right: c.right, top: c.top }}>
           <span className="text-white text-xs font-semibold tracking-wide whitespace-nowrap bg-white/5 border border-white/10 px-2 py-0.5 rounded-sm">
             {c.label}
           </span>
