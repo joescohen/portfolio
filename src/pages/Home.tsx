@@ -124,8 +124,8 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
     <div
       className={`${textReveal} h-full flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-10 lg:py-12`}
     >
-      <span className="text-white/30 text-xs font-semibold mb-2">{num}</span>
-      <span className="text-orange-500 text-xs font-semibold uppercase tracking-[0.12em] mb-4">
+      <span className="text-white/30 text-xs font-mono mb-2">{num}</span>
+      <span className="text-orange-500 text-xs font-mono uppercase tracking-[0.18em] mb-4">
         {project.category}
       </span>
       <h3
@@ -134,7 +134,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
       >
         {project.title}
       </h3>
-      <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-md">
+      <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-md">
         {project.description}
       </p>
       <div className="flex flex-wrap gap-1.5 mb-6">
@@ -236,7 +236,7 @@ export function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-transparent to-navy pointer-events-none" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 pt-16 pb-0">
-          <p className="text-orange-500 text-xs font-semibold uppercase tracking-[0.12em] mb-4">
+          <p className="text-orange-500 text-xs font-mono uppercase tracking-[0.18em] mb-4">
             Portfolio
           </p>
           <h1
