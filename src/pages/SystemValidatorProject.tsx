@@ -44,7 +44,7 @@ export function SystemValidatorProject() {
 
           {/* Left: title + meta */}
           <div className="lg:w-1/2 z-10">
-            <Link to="/" className="text-white/35 text-xs hover:text-white/65 mb-5 block transition-colors">
+            <Link to="/" viewTransition className="text-white/35 text-xs hover:text-white/65 mb-5 block transition-colors">
               ← Projects
             </Link>
             <p className="text-xs font-bold uppercase tracking-widest text-violet-400 mb-3">

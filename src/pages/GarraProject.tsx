@@ -29,7 +29,7 @@ export function GarraProject() {
         <div className="absolute inset-0 bg-blueprint opacity-20 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-red-950/60 pointer-events-none" />
         <div className="relative z-10">
-        <Link to="/" className="font-mono text-white/40 text-xs hover:text-white/70 mb-4 block transition-colors tracking-wide">
+        <Link to="/" viewTransition className="font-mono text-white/40 text-xs hover:text-white/70 mb-4 block transition-colors tracking-wide">
           ← Projects
         </Link>
         <p className="font-mono text-xs tracking-[0.18em] uppercase text-yellow-400/70 mb-2">
