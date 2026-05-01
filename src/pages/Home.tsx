@@ -15,6 +15,12 @@ function VoyageVisual() {
   )
 }
 
+interface Skill {
+  name: string
+  description: string
+  href: string
+}
+
 interface Project {
   id: string
   href: string
@@ -23,6 +29,7 @@ interface Project {
   description: string
   tags: string[]
   Visual: ComponentType
+  skills?: Skill[]
 }
 
 const projects: Project[] = [
@@ -61,6 +68,18 @@ const projects: Project[] = [
     description: 'Multi-agent QA pipeline — Claude Code skill',
     tags: ['Claude Code', 'Multi-Agent', 'Systems Engineering', 'TypeScript'],
     Visual: PipelineFlow,
+    skills: [
+      {
+        name: '/system-validation',
+        description: 'Spec → Matrix → Executor → Reporter — finds what tests miss',
+        href: 'https://github.com/joescohen/claude-skills',
+      },
+      {
+        name: '/skill-auditor',
+        description: 'Post-run gap analysis — diagnoses pipeline failures, applies fixes',
+        href: 'https://github.com/joescohen/claude-skills',
+      },
+    ],
   },
 ]
 
@@ -128,6 +147,40 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
           </span>
         ))}
       </div>
+      {project.skills && (
+        <div className="mb-6">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="text-white/20 text-[10px] uppercase tracking-[0.12em] font-semibold">
+              Claude Code Skills
+            </span>
+            <div className="flex-1 h-px bg-white/8" />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            {project.skills.map((skill) => (
+              <a
+                key={skill.name}
+                href={skill.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/skill flex items-start gap-3 bg-white/[0.03] hover:bg-white/[0.06] border border-white/8 hover:border-orange-500/30 rounded-sm px-3 py-2.5 transition-all"
+              >
+                <span
+                  className="text-orange-500/70 group-hover/skill:text-orange-500 text-xs font-medium transition-colors shrink-0 mt-px"
+                  style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                >
+                  {skill.name}
+                </span>
+                <span className="text-white/30 group-hover/skill:text-white/50 text-xs leading-relaxed transition-colors">
+                  {skill.description}
+                </span>
+                <span className="ml-auto text-white/15 group-hover/skill:text-orange-500/60 text-xs shrink-0 transition-colors mt-px">
+                  ↗
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
       <Link
         to={project.href}
         className="group/link text-sm text-white/40 hover:text-orange-500 transition-colors inline-flex items-center gap-1"
