@@ -56,9 +56,9 @@ export function SysMLDiagram() {
               width={140}
               height={50}
               rx={6}
-              stroke="rgba(255,255,255,0.4)"
-              strokeWidth="1"
-              fill="rgba(255,255,255,0.05)"
+              stroke="rgba(255,255,255,0.5)"
+              strokeWidth="1.5"
+              fill="rgba(255,255,255,0.07)"
             />
             <text
               x={block.x + 70}
@@ -66,7 +66,7 @@ export function SysMLDiagram() {
               textAnchor="middle"
               dominantBaseline="central"
               fill="white"
-              fontSize="12"
+              fontSize="13"
               fontFamily="'DM Sans', sans-serif"
               fontWeight="500"
             >
@@ -76,8 +76,8 @@ export function SysMLDiagram() {
               x={block.x + 70}
               y={block.y + 42}
               textAnchor="middle"
-              fill="rgba(255,255,255,0.3)"
-              fontSize="8"
+              fill="rgba(255,255,255,0.4)"
+              fontSize="9"
               fontFamily="'DM Sans', sans-serif"
             >
               {'<<block>>'}
@@ -89,8 +89,8 @@ export function SysMLDiagram() {
           x={300}
           y={290}
           textAnchor="middle"
-          fill="rgba(255,255,255,0.2)"
-          fontSize="10"
+          fill="rgba(255,255,255,0.25)"
+          fontSize="11"
           fontFamily="'DM Sans', sans-serif"
           letterSpacing="0.15em"
         >

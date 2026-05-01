@@ -17,52 +17,52 @@ export function HelicopterProfile() {
       >
         {/* Rotor disc — animated */}
         <g style={{ transformOrigin: '260px 100px', animation: 'rotor-spin 8s linear infinite' }}>
-          <ellipse cx={260} cy={100} rx={180} ry={8} stroke="rgba(255,255,255,0.25)" strokeWidth="1" strokeDasharray="6 4" />
+          <ellipse cx={260} cy={100} rx={180} ry={8} stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="8 5" />
         </g>
 
         {/* Rotor mast */}
-        <line x1={260} y1={100} x2={260} y2={145} stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
+        <line x1={260} y1={100} x2={260} y2={145} stroke="rgba(255,255,255,0.6)" strokeWidth="2" />
 
         {/* Fuselage */}
         <path
           d="M 140 180 Q 160 145 260 145 Q 360 145 400 165 L 420 170 L 440 165 L 460 170 Q 470 175 460 180 L 400 185 Q 360 200 260 200 Q 180 200 150 195 Z"
-          stroke="rgba(255,255,255,0.6)"
-          strokeWidth="1.5"
-          fill="rgba(255,255,255,0.03)"
+          stroke="rgba(255,255,255,0.7)"
+          strokeWidth="2"
+          fill="rgba(255,255,255,0.05)"
         />
 
         {/* Cockpit windscreen */}
         <path
           d="M 155 175 Q 170 155 200 152 L 200 175 Z"
-          stroke="rgba(255,255,255,0.4)"
-          strokeWidth="1"
-          fill="rgba(255,255,255,0.05)"
+          stroke="rgba(255,255,255,0.5)"
+          strokeWidth="1.5"
+          fill="rgba(255,255,255,0.07)"
         />
 
         {/* Tail boom */}
         <path
           d="M 400 175 L 510 155 L 520 140 L 530 155 L 510 160 L 400 180"
-          stroke="rgba(255,255,255,0.5)"
-          strokeWidth="1.5"
-          fill="rgba(255,255,255,0.02)"
+          stroke="rgba(255,255,255,0.6)"
+          strokeWidth="2"
+          fill="rgba(255,255,255,0.03)"
         />
 
         {/* Tail rotor */}
-        <circle cx={525} cy={148} r={18} stroke="rgba(255,255,255,0.3)" strokeWidth="1" strokeDasharray="4 3" />
+        <circle cx={525} cy={148} r={18} stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" strokeDasharray="6 4" />
 
         {/* Landing skids */}
-        <line x1={200} y1={200} x2={200} y2={225} stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-        <line x1={330} y1={200} x2={330} y2={225} stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" />
-        <line x1={180} y1={225} x2={350} y2={225} stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+        <line x1={200} y1={200} x2={200} y2={225} stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+        <line x1={330} y1={200} x2={330} y2={225} stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
+        <line x1={180} y1={225} x2={350} y2={225} stroke="rgba(255,255,255,0.5)" strokeWidth="2" />
 
         {/* Pusher prop (thrust compounding) */}
-        <ellipse cx={535} cy={170} rx={4} ry={22} stroke="rgba(249,115,22,0.5)" strokeWidth="1" strokeDasharray="3 2" />
+        <ellipse cx={535} cy={170} rx={4} ry={22} stroke="rgba(249,115,22,0.6)" strokeWidth="1.5" strokeDasharray="6 4" />
 
         {/* Dimension line */}
-        <line x1={150} y1={260} x2={530} y2={260} stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
-        <line x1={150} y1={255} x2={150} y2={265} stroke="rgba(255,255,255,0.15)" strokeWidth="0.5" />
-        <line x1={530} y1={255} x2={530} y2={265} stroke="rgba(255,255,255,0.15)" strokeWidth="0.5" />
-        <text x={340} y={275} textAnchor="middle" fill="rgba(255,255,255,0.15)" fontSize="9" fontFamily="'DM Sans', sans-serif">
+        <line x1={150} y1={260} x2={530} y2={260} stroke="rgba(255,255,255,0.15)" strokeWidth="0.75" />
+        <line x1={150} y1={255} x2={150} y2={265} stroke="rgba(255,255,255,0.2)" strokeWidth="0.75" />
+        <line x1={530} y1={255} x2={530} y2={265} stroke="rgba(255,255,255,0.2)" strokeWidth="0.75" />
+        <text x={340} y={275} textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize="10" fontFamily="'DM Sans', sans-serif">
           GARRA — COMPOUND HELICOPTER
         </text>
       </svg>

@@ -18,8 +18,8 @@ export function PipelineFlow() {
         aria-label="System Validator agent pipeline showing 5 stages with parallel execution"
       >
         <defs>
-          <marker id="pipeline-arrow" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
-            <polygon points="0 0, 6 2.5, 0 5" fill="rgba(255,255,255,0.3)" />
+          <marker id="pipeline-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="rgba(255,255,255,0.45)" />
           </marker>
         </defs>
 
@@ -32,17 +32,17 @@ export function PipelineFlow() {
               <circle
                 cx={x}
                 cy={y}
-                r={28}
-                stroke="rgba(255,255,255,0.3)"
-                strokeWidth="1"
-                fill="rgba(255,255,255,0.04)"
+                r={32}
+                stroke="rgba(255,255,255,0.4)"
+                strokeWidth="1.5"
+                fill="rgba(255,255,255,0.06)"
               />
               <text
                 x={x}
-                y={y - 4}
+                y={y - 3}
                 textAnchor="middle"
                 fill="#f97316"
-                fontSize="14"
+                fontSize="16"
                 fontWeight="600"
                 fontFamily="'DM Sans', sans-serif"
               >
@@ -50,10 +50,10 @@ export function PipelineFlow() {
               </text>
               <text
                 x={x}
-                y={y + 50}
+                y={y + 52}
                 textAnchor="middle"
                 fill="white"
-                fontSize="11"
+                fontSize="12"
                 fontWeight="500"
                 fontFamily="'DM Sans', sans-serif"
               >
@@ -61,10 +61,10 @@ export function PipelineFlow() {
               </text>
               <text
                 x={x}
-                y={y + 66}
+                y={y + 67}
                 textAnchor="middle"
-                fill="rgba(255,255,255,0.35)"
-                fontSize="9"
+                fill="rgba(255,255,255,0.45)"
+                fontSize="10"
                 fontFamily="'DM Sans', sans-serif"
               >
                 {stage.sub}
@@ -72,12 +72,12 @@ export function PipelineFlow() {
 
               {i < STAGES.length - 1 && !stage.fan && (
                 <line
-                  x1={x + 28}
+                  x1={x + 32}
                   y1={y}
-                  x2={x + 150 - 28}
+                  x2={x + 150 - 32}
                   y2={y}
-                  stroke="rgba(255,255,255,0.2)"
-                  strokeWidth="1"
+                  stroke="rgba(255,255,255,0.35)"
+                  strokeWidth="1.5"
                   markerEnd="url(#pipeline-arrow)"
                 />
               )}
@@ -86,12 +86,12 @@ export function PipelineFlow() {
         })}
 
         {/* Fan-out from Matrix Agent to Executor — 3 parallel lines */}
-        <line x1={288} y1={100} x2={432} y2={100} stroke="rgba(255,255,255,0.15)" strokeWidth="1" markerEnd="url(#pipeline-arrow)" />
-        <line x1={288} y1={110} x2={432} y2={110} stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#pipeline-arrow)" />
-        <line x1={288} y1={120} x2={432} y2={120} stroke="rgba(255,255,255,0.15)" strokeWidth="1" markerEnd="url(#pipeline-arrow)" />
+        <line x1={392} y1={100} x2={478} y2={100} stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
+        <line x1={392} y1={110} x2={478} y2={110} stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
+        <line x1={392} y1={120} x2={478} y2={120} stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
 
         {/* Executor to Reporter — reconverge */}
-        <line x1={488} y1={110} x2={582} y2={110} stroke="rgba(255,255,255,0.2)" strokeWidth="1" markerEnd="url(#pipeline-arrow)" />
+        <line x1={542} y1={110} x2={628} y2={110} stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
 
         {/* Gate markers */}
         {[
@@ -100,15 +100,16 @@ export function PipelineFlow() {
           { x: 495, label: 'Gate 3' },
         ].map((gate) => (
           <g key={gate.label}>
-            <line x1={gate.x} y1={85} x2={gate.x} y2={135} stroke="#f97316" strokeWidth="1" strokeDasharray="3 2" opacity={0.4} />
+            <line x1={gate.x} y1={82} x2={gate.x} y2={138} stroke="#f97316" strokeWidth="1.5" strokeDasharray="8 5" opacity={0.5} />
             <text
               x={gate.x}
-              y={78}
+              y={74}
               textAnchor="middle"
               fill="#f97316"
-              fontSize="8"
+              fontSize="9"
               fontFamily="'DM Sans', sans-serif"
-              opacity={0.6}
+              fontWeight="500"
+              opacity={0.7}
             >
               {gate.label}
             </text>
@@ -120,8 +121,8 @@ export function PipelineFlow() {
           x={350}
           y={240}
           textAnchor="middle"
-          fill="rgba(255,255,255,0.15)"
-          fontSize="10"
+          fill="rgba(255,255,255,0.2)"
+          fontSize="11"
           fontFamily="'DM Sans', sans-serif"
           letterSpacing="0.15em"
         >
