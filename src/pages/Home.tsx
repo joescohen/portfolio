@@ -185,12 +185,13 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
       )}
       <Link
         to={project.href}
-        className="group/link text-sm text-white/40 hover:text-orange-500 transition-colors inline-flex items-center gap-1"
+        className="group/link relative inline-flex items-center gap-3 px-5 py-3 text-sm font-medium text-white/70 hover:text-white border border-white/10 hover:border-orange-500/50 rounded-sm bg-white/[0.03] hover:bg-orange-500/[0.08] transition-all duration-300 hover:shadow-[0_0_24px_-4px_rgba(249,115,22,0.3)] overflow-hidden self-start"
       >
-        View project
-        <span className="inline-block transition-transform group-hover/link:translate-x-1 ease-spring">
-          &rarr;
+        <span className="relative z-10 tracking-wide">Explore project</span>
+        <span className="relative z-10 flex items-center gap-0.5 text-orange-500/60 group-hover/link:text-orange-400 transition-colors duration-300">
+          <span className="inline-block transition-transform duration-300 group-hover/link:translate-x-1">→</span>
         </span>
+        <span className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/[0.04] to-orange-500/0 opacity-0 group-hover/link:opacity-100 transition-opacity duration-300" />
       </Link>
     </div>
   )
