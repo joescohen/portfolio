@@ -63,9 +63,9 @@ const projects: Project[] = [
   {
     id: 'system-validator',
     href: '/projects/system-validator',
-    title: 'System Validator',
+    title: 'AI Agent Skills',
     category: 'AI Engineering',
-    description: 'Multi-agent QA pipeline — Claude Code skill',
+    description: 'Claude Code skill suite — automated QA pipeline & post-run auditing',
     tags: ['Claude Code', 'Multi-Agent', 'Systems Engineering', 'TypeScript'],
     Visual: PipelineFlow,
     skills: [
@@ -85,7 +85,7 @@ const projects: Project[] = [
 
 const TABS = [
   { id: 'projects', label: 'Projects' },
-  { id: 'films', label: 'Films' },
+  { id: 'films', label: 'Recently Watched' },
 ]
 
 function useReveal() {
