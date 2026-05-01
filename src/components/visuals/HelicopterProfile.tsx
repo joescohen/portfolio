@@ -8,7 +8,7 @@ const HIT_RADIUS = 195  // SVG-unit radius around rotor center
 
 const CALLOUTS = [
   { label: '135 kt', x: '65%', y: '28%', align: 'left' as const },
-  { label: '50 kg payload', x: '58%', y: '72%', align: 'left' as const },
+  { label: '50 kg payload', x: '58%', y: '64%', align: 'left' as const },
   { label: '1st Place VFS', x: '18%', y: '22%', align: 'right' as const },
 ]
 
