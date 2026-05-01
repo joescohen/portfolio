@@ -1,7 +1,7 @@
 const STAGES = [
   { id: 1, label: 'Conductor', sub: 'Pre-flight' },
   { id: 2, label: 'Spec Agent', sub: 'specification.md' },
-  { id: 3, label: 'Matrix Agent', sub: 'validation-matrix.md' },
+  { id: 3, label: 'Matrix Agent', sub: 'validation-matrix.md', fan: true },
   { id: 4, label: 'Executor', sub: '×N parallel', fan: true },
   { id: 5, label: 'Reporter', sub: 'audit-report.md' },
 ]
