@@ -39,8 +39,9 @@ export function PipelineFlow() {
               />
               <text
                 x={x}
-                y={y - 3}
+                y={y}
                 textAnchor="middle"
+                dominantBaseline="central"
                 fill="#f97316"
                 fontSize="16"
                 fontWeight="600"

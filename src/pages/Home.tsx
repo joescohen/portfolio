@@ -71,12 +71,12 @@ const projects: Project[] = [
     skills: [
       {
         name: '/system-validation',
-        description: 'Spec → Matrix → Executor → Reporter — finds what tests miss',
+        description: 'Multi-agent QA pipeline — Spec, Matrix, Executor, Reporter',
         href: 'https://github.com/joescohen/claude-skills',
       },
       {
         name: '/skill-auditor',
-        description: 'Post-run gap analysis — diagnoses pipeline failures, applies fixes',
+        description: 'Post-run auditor — diagnoses pipeline gaps, applies fixes',
         href: 'https://github.com/joescohen/claude-skills',
       },
     ],
@@ -162,18 +162,18 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
                 href={skill.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/skill flex items-start gap-3 bg-white/[0.03] hover:bg-white/[0.06] border border-white/8 hover:border-orange-500/30 rounded-sm px-3 py-2.5 transition-all"
+                className="group/skill flex items-center gap-3 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.08] hover:border-orange-500/30 rounded-sm px-3 py-2.5 transition-all"
               >
                 <span
-                  className="text-orange-500/70 group-hover/skill:text-orange-500 text-xs font-medium transition-colors shrink-0 mt-px"
+                  className="text-orange-500/70 group-hover/skill:text-orange-500 text-xs font-medium transition-colors shrink-0"
                   style={{ fontFamily: "'JetBrains Mono', monospace" }}
                 >
                   {skill.name}
                 </span>
-                <span className="text-white/30 group-hover/skill:text-white/50 text-xs leading-relaxed transition-colors">
+                <span className="text-white/30 group-hover/skill:text-white/50 text-xs leading-relaxed transition-colors min-w-0">
                   {skill.description}
                 </span>
-                <span className="ml-auto text-white/15 group-hover/skill:text-orange-500/60 text-xs shrink-0 transition-colors mt-px">
+                <span className="ml-auto text-white/20 group-hover/skill:text-orange-500/60 text-xs shrink-0 transition-colors">
                   ↗
                 </span>
               </a>
