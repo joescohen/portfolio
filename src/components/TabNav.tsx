@@ -11,7 +11,7 @@ interface TabNavProps {
 
 export function TabNav({ tabs, activeTab, onChange }: TabNavProps) {
   return (
-    <div className="bg-slate-50 border-b-2 border-slate-200 px-6 lg:px-12 flex overflow-x-auto">
+    <div className="bg-white border-b border-zinc-200 px-6 lg:px-12 flex overflow-x-auto">
       {tabs.map((tab) => (
         <button
           key={tab.id}

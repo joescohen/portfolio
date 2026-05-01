@@ -33,18 +33,21 @@ export function ANGARSProject() {
   const ActiveComponent = TAB_COMPONENTS[activeTab]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-zinc-50">
       <Nav />
 
       {/* Hero */}
-      <div className="bg-gradient-to-r from-navy to-navy-light px-6 lg:px-12 py-10">
-        <Link to="/" className="text-white/50 text-xs hover:text-white/80 mb-4 block transition-colors">
+      <div className="relative bg-gradient-to-r from-navy to-navy-light overflow-hidden px-6 lg:px-12 py-10">
+        <div className="absolute inset-0 bg-blueprint opacity-30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/60 pointer-events-none" />
+        <div className="relative z-10">
+        <Link to="/" className="font-mono text-white/40 text-xs hover:text-white/70 mb-4 block transition-colors tracking-wide">
           ← Projects
         </Link>
-        <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">
+        <p className="font-mono text-xs tracking-[0.18em] uppercase text-white/50 mb-2">
           Johns Hopkins University · Systems Engineering Capstone · Spring 2025
         </p>
-        <h1 className="text-3xl font-extrabold text-white tracking-tight mb-1">
+        <h1 className="text-4xl text-white tracking-tight mb-1" style={{ fontFamily: "'DM Serif Display', serif" }}>
           ANGARS
         </h1>
         <p className="text-white/75 text-sm mb-5">
@@ -57,6 +60,7 @@ export function ANGARSProject() {
           <StatBadge label="76.7% Quantitative" />
           <StatBadge label="MBSE · Cameo" />
         </div>
+        </div>{/* end z-10 */}
       </div>
 
       <TabNav tabs={TABS} activeTab={activeTab} onChange={setActiveTab} />

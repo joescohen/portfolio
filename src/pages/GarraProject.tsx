@@ -21,18 +21,21 @@ export function GarraProject() {
   const ActiveComponent = TAB_COMPONENTS[activeTab]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-zinc-50">
       <Nav />
 
       {/* Hero — UMD red/gold */}
-      <div className="bg-gradient-to-r from-red-800 to-red-900 px-6 lg:px-12 py-10">
-        <Link to="/" className="text-white/50 text-xs hover:text-white/80 mb-4 block transition-colors">
+      <div className="relative bg-gradient-to-r from-red-800 to-red-900 overflow-hidden px-6 lg:px-12 py-10">
+        <div className="absolute inset-0 bg-blueprint opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-red-950/60 pointer-events-none" />
+        <div className="relative z-10">
+        <Link to="/" className="font-mono text-white/40 text-xs hover:text-white/70 mb-4 block transition-colors tracking-wide">
           ← Projects
         </Link>
-        <p className="text-xs font-bold uppercase tracking-widest text-yellow-400/80 mb-2">
+        <p className="font-mono text-xs tracking-[0.18em] uppercase text-yellow-400/70 mb-2">
           University of Maryland · 38th VFS Student Design Competition · 2021
         </p>
-        <h1 className="text-3xl font-extrabold text-white tracking-tight mb-1">
+        <h1 className="text-4xl text-white tracking-tight mb-1" style={{ fontFamily: "'DM Serif Display', serif" }}>
           Garra
         </h1>
         <p className="text-white/75 text-sm mb-5">
@@ -45,6 +48,7 @@ export function GarraProject() {
           <StatBadge label="50 kg Payload" />
           <StatBadge label="CATIA · Altair" />
         </div>
+        </div>{/* end z-10 */}
       </div>
 
       <TabNav tabs={TABS} activeTab={activeTab} onChange={setActiveTab} />

@@ -32,7 +32,7 @@ export function SystemValidatorProject() {
   const ActiveComponent = TAB_COMPONENTS[activeTab]
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-zinc-50">
       <Nav />
 
       {/* Hero */}

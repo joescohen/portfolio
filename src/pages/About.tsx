@@ -119,13 +119,15 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 export function About() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-zinc-50">
       <Nav />
 
       {/* Hero */}
-      <div className="bg-navy px-6 lg:px-12 py-14">
-        <p className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-3"
-           style={{ fontFamily: "'DM Sans', sans-serif" }}>
+      <div className="relative bg-navy overflow-hidden px-6 lg:px-12 py-14">
+        <div className="absolute inset-0 bg-blueprint opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-transparent to-navy pointer-events-none" />
+        <div className="relative z-10">
+        <p className="font-mono text-xs tracking-[0.2em] uppercase text-orange-500 mb-3">
           About Me
         </p>
         <h1
@@ -134,10 +136,10 @@ export function About() {
         >
           Joe Cohen
         </h1>
-        <p className="text-white/80 text-base mb-1" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <p className="text-white/80 text-base mb-1">
           Principal Systems Engineer · Northrop Grumman
         </p>
-        <p className="text-white/50 text-sm mb-6" style={{ fontFamily: "'DM Sans', sans-serif" }}>
+        <p className="font-mono text-white/40 text-xs tracking-wide mb-6">
           MEng Systems Engineering, Johns Hopkins &nbsp;·&nbsp; BS Aerospace Engineering, University of Maryland
         </p>
         <div className="flex flex-wrap gap-4 text-sm" style={{ fontFamily: "'DM Sans', sans-serif" }}>
@@ -169,6 +171,7 @@ export function About() {
             Baltimore, MD
           </span>
         </div>
+        </div>{/* end z-10 */}
       </div>
 
       {/* Highlight stats bar */}
