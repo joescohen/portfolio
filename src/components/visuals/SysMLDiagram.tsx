@@ -107,7 +107,7 @@ export function SysMLDiagram() {
 
         {/* Boundary stereotype + label */}
         <text x={147} y={67}
-          fill="rgba(255,255,255,0.28)" fontSize="9" fontFamily="'DM Sans', sans-serif">
+          fill="rgba(255,255,255,0.40)" fontSize="9" fontFamily="'DM Sans', sans-serif">
           {'«system»'}
         </text>
         <text x={147} y={81}
@@ -139,7 +139,7 @@ export function SysMLDiagram() {
                 stroke="rgba(255,255,255,0.15)" strokeWidth="0.75" />
               <text x={cx} y={s.y + 11}
                 textAnchor="middle"
-                fill="rgba(249,115,22,0.6)" fontSize="8"
+                fill="rgba(249,115,22,0.6)" fontSize="9"
                 fontFamily="'DM Sans', sans-serif">
                 {'«block»'}
               </text>

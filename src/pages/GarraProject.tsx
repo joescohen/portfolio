@@ -35,7 +35,7 @@ export function GarraProject() {
         <p className="text-xs font-bold uppercase tracking-widest text-yellow-400/70 mb-2">
           University of Maryland · 38th VFS Student Design Competition · 2021
         </p>
-        <h1 className="text-4xl font-extrabold text-white tracking-tight mb-1">
+        <h1 className="text-5xl font-extrabold text-white leading-tight mb-1">
           Garra
         </h1>
         <p className="text-white/75 text-sm mb-5">

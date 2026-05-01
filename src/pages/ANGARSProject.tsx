@@ -47,7 +47,7 @@ export function ANGARSProject() {
         <p className="text-xs font-bold uppercase tracking-widest text-white/50 mb-2">
           Johns Hopkins University · Systems Engineering Capstone · Spring 2025
         </p>
-        <h1 className="text-4xl font-extrabold text-white tracking-tight mb-1">
+        <h1 className="text-5xl font-extrabold text-white leading-tight mb-1">
           ANGARS
         </h1>
         <p className="text-white/75 text-sm mb-5">

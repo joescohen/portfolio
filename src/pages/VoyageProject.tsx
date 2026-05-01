@@ -21,7 +21,7 @@ export function VoyageProject() {
             <p className="text-xs font-bold uppercase tracking-widest text-teal-400 mb-3">
               Full-Stack Web Application
             </p>
-            <h1 className="text-4xl font-extrabold text-white tracking-tight mb-3">Voyage</h1>
+            <h1 className="text-5xl font-extrabold text-white leading-tight mb-3">Voyage</h1>
             <p className="text-white/60 text-sm mb-6 max-w-sm leading-relaxed">
               AI-powered travel planning with Claude AI, interactive maps, and real-time itinerary management.
             </p>

@@ -50,7 +50,7 @@ export function SystemValidatorProject() {
             <p className="text-xs font-bold uppercase tracking-widest text-violet-400 mb-3">
               AI Engineering · Claude Code Skills
             </p>
-            <h1 className="text-4xl font-extrabold text-white tracking-tight mb-3">
+            <h1 className="text-5xl font-extrabold text-white leading-tight mb-3">
               AI Agent Skills
             </h1>
             <p className="text-white/55 text-sm mb-2 max-w-md leading-relaxed">

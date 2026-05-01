@@ -124,7 +124,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
     <div
       className={`${textReveal} h-full flex flex-col justify-center px-6 lg:px-12 xl:px-16 py-10 lg:py-12`}
     >
-      <span className="text-white/30 text-xs mb-2">{num}</span>
+      <span className="text-white/40 text-xs mb-2">{num}</span>
       <span className="text-orange-500 text-xs font-bold uppercase tracking-widest mb-4">
         {project.category}
       </span>
@@ -147,7 +147,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
       {project.skills && (
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-white/20 text-[10px] uppercase tracking-[0.12em] font-semibold">
+            <span className="text-white/40 text-[10px] uppercase tracking-[0.12em] font-semibold">
               Claude Code Skills
             </span>
             <div className="flex-1 h-px bg-white/8" />
@@ -168,7 +168,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
                   >
                     {skill.name}
                   </span>
-                  <span className="text-white/20 group-hover/skill:text-orange-500/60 text-xs transition-colors">
+                  <span className="text-white/40 group-hover/skill:text-orange-500/60 text-xs transition-colors">
                     ↗
                   </span>
                 </div>
@@ -201,7 +201,7 @@ function ProjectStrip({ project, index }: { project: Project; index: number }) {
   )
 
   return (
-    <div className={`${bgClass} border-b border-white/5`}>
+    <div className={`${bgClass} border-b border-white/5 overflow-hidden`}>
       <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[420px]">
         {isEven ? (
           <>

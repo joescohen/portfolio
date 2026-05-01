@@ -86,7 +86,7 @@ export function HelicopterProfile() {
       <svg
         ref={svgRef}
         viewBox="0 0 600 360"
-        className="w-full max-w-lg"
+        className="w-full"
         style={{ cursor: grabbing ? 'grabbing' : 'grab' }}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

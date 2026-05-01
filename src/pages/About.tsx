@@ -124,13 +124,10 @@ export function About() {
         <div className="absolute inset-0 bg-blueprint opacity-40 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-transparent to-navy pointer-events-none" />
         <div className="relative z-10">
-          <p className="font-mono text-xs tracking-[0.2em] uppercase text-orange-500 mb-3">
+          <p className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-3">
             About Me
           </p>
-          <h1
-            className="text-5xl font-normal text-white mb-3 leading-tight"
-            style={{ fontFamily: "'DM Serif Display', serif" }}
-          >
+          <h1 className="text-5xl font-extrabold text-white mb-3 leading-tight">
             Joe Cohen
           </h1>
           <p className="text-white/80 text-base mb-1">
@@ -215,7 +212,7 @@ export function About() {
               <SectionHeading>Work Experience</SectionHeading>
               <div className="relative">
                 {/* Timeline spine */}
-                <div className="absolute left-[7px] top-2 bottom-0 w-px bg-slate-200" />
+                <div className="absolute left-[7px] top-2 bottom-0 w-px bg-slate-400" />
 
                 <div className="space-y-9">
                   {experience.map((job, i) => (
@@ -338,7 +335,7 @@ export function About() {
                 <div className="space-y-5">
                   {skillGroups.map((group) => (
                     <div key={group.category}>
-                      <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">
+                      <p className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">
                         {group.category}
                       </p>
                       <div className="flex flex-wrap gap-1.5">
