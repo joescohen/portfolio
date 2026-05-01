@@ -85,10 +85,10 @@ export function PipelineFlow() {
           )
         })}
 
-        {/* Fan-out from Matrix Agent to Executor — 3 parallel lines */}
-        <line x1={392} y1={100} x2={478} y2={100} stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
-        <line x1={392} y1={110} x2={478} y2={110} stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
-        <line x1={392} y1={120} x2={478} y2={120} stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
+        {/* Fan-out: all three lines originate at Matrix Agent right edge (x=392,y=110) and diverge */}
+        <line x1={392} y1={110} x2={478} y2={88}  stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
+        <line x1={392} y1={110} x2={478} y2={110} stroke="rgba(255,255,255,0.4)"  strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
+        <line x1={392} y1={110} x2={478} y2={132} stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
 
         {/* Executor to Reporter — reconverge */}
         <line x1={542} y1={110} x2={628} y2={110} stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" markerEnd="url(#pipeline-arrow)" />
