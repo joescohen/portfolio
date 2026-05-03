@@ -1,6 +1,6 @@
 import { SectionLabel } from '../../../components/SectionLabel'
 
-const GITHUB_URL = 'https://github.com/joescohen/system-validation'
+const GITHUB_URL = 'https://github.com/joescohen/claude-skills'
 
 const features = [
   {
@@ -80,7 +80,7 @@ export function Overview() {
       <SectionLabel>Source</SectionLabel>
       <div className="bg-slate-950 rounded-xl p-6 flex items-center justify-between">
         <div>
-          <p className="text-white text-sm font-semibold mb-1">joescohen/system-validation</p>
+          <p className="text-white text-sm font-semibold mb-1">joescohen/claude-skills</p>
           <p className="text-white/40 text-xs">Claude Code skill · Public · MIT</p>
         </div>
         <a

@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       { path: '/projects/angars', element: <ANGARSProject /> },
       { path: '/projects/voyage', element: <VoyageProject /> },
       { path: '/projects/garra', element: <GarraProject /> },
-      { path: '/projects/system-validator', element: <SystemValidatorProject /> },
+      { path: '/projects/claude-skills', element: <SystemValidatorProject /> },
       { path: '*', element: <NotFound /> },
     ],
   },

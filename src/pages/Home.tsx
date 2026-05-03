@@ -62,7 +62,7 @@ const projects: Project[] = [
   },
   {
     id: 'system-validator',
-    href: '/projects/system-validator',
+    href: '/projects/claude-skills',
     title: 'AI Agent Skills',
     category: 'AI Engineering',
     description: 'Claude Code skill suite — automated QA pipeline & post-run auditing',
