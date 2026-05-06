@@ -5,6 +5,7 @@ import { LetterboxdFeed } from '../components/LetterboxdFeed'
 import { SysMLDiagram } from '../components/visuals/SysMLDiagram'
 import { HelicopterProfile } from '../components/visuals/HelicopterProfile'
 import { PipelineFlow } from '../components/visuals/PipelineFlow'
+import { SepalStack } from '../components/visuals/SepalStack'
 import { VoyageGlobe } from '../components/visuals/VoyageGlobe'
 
 function VoyageVisual() {
@@ -80,6 +81,15 @@ const projects: Project[] = [
         href: 'https://github.com/joescohen/claude-skills',
       },
     ],
+  },
+  {
+    id: 'sepal',
+    href: '/projects/sepal',
+    title: 'SEPAL',
+    category: 'AI + Systems Engineering',
+    description: 'Multi-agent SE process runtime — adversarial review of real program artifacts',
+    tags: ['Multi-Agent', 'Anthropic SDK', 'Zod', 'TypeScript', 'Defense/Aerospace'],
+    Visual: SepalStack,
   },
 ]
 

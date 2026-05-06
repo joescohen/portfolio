@@ -5,6 +5,7 @@ import { ANGARSProject } from './pages/ANGARSProject'
 import { VoyageProject } from './pages/VoyageProject'
 import { GarraProject } from './pages/GarraProject'
 import { SystemValidatorProject } from './pages/SystemValidatorProject'
+import { SepalProject } from './pages/SepalProject'
 import { NotFound } from './pages/NotFound'
 
 function Root() {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       { path: '/projects/voyage', element: <VoyageProject /> },
       { path: '/projects/garra', element: <GarraProject /> },
       { path: '/projects/claude-skills', element: <SystemValidatorProject /> },
+      { path: '/projects/sepal', element: <SepalProject /> },
       { path: '*', element: <NotFound /> },
     ],
   },
