@@ -9,39 +9,81 @@ const ARCHETYPES = [
   { name: 'Generator', color: 'text-orange-400', desc: 'Produces a new artifact from inputs + standards. Builds risk entries, verification matrices, trace mappings. Output-oriented.' },
 ]
 
-const DOMAINS = [
+type SkillEntry = { name: string; live: boolean }
+
+const DOMAINS: { id: string; name: string; color: string; skills: SkillEntry[] }[] = [
   {
     id: 'D1', name: 'Requirements & Specs', color: 'text-blue-400',
-    skills: ['Requirements Quality Gate', 'Specification Quality Reviewer', 'ICD Consistency Checker'],
+    skills: [
+      { name: 'Requirements Quality Gate (RQG)', live: true },
+      { name: 'Requirements Traceability Audit (RTA)', live: true },
+      { name: 'Specification Quality Reviewer (SQR)', live: true },
+      { name: 'ICD Consistency Checker (ICDC)', live: true },
+    ],
   },
   {
     id: 'D2', name: 'Design & Architecture', color: 'text-green-400',
-    skills: ['Design Review Simulation (SRR/SDR/PDR/CDR)', 'Trade Study Rigor Auditor', 'Architecture Completeness Checker'],
+    skills: [
+      { name: 'Design Review Simulation — SRR/SDR/PDR/CDR (DRS)', live: true },
+      { name: 'Trade Study Audit (TSA)', live: true },
+      { name: 'Architecture Completeness Checker', live: false },
+    ],
   },
   {
     id: 'D3', name: 'Verification & Validation', color: 'text-cyan-400',
-    skills: ['VCRM Generator', 'Test Readiness Review Asst.', 'Test Coverage Analyzer'],
+    skills: [
+      { name: 'VCRM Generator', live: false },
+      { name: 'Test Readiness Review Asst.', live: false },
+      { name: 'Test Coverage Analyzer', live: false },
+    ],
   },
   {
     id: 'D4', name: 'Risk & Reliability', color: 'text-red-400',
-    skills: ['Technical Risk Register Builder', 'FMEA/FMECA Quality Auditor'],
+    skills: [
+      { name: 'Technical Risk Register Builder', live: false },
+      { name: 'FMEA/FMECA Quality Auditor', live: false },
+    ],
   },
   {
     id: 'D5', name: 'Concept & Operations', color: 'text-amber-400',
-    skills: ['ConOps / Mission Thread Walkthrough', 'Stakeholder Needs Elicitation Auditor'],
+    skills: [
+      { name: 'ConOps / Mission Thread Walkthrough (CMW)', live: true },
+      { name: 'Stakeholder Needs Elicitation Auditor', live: false },
+    ],
   },
   {
     id: 'D6', name: 'Program Mgmt & Process', color: 'text-violet-400',
-    skills: ['SEMP / SE Plan Auditor', 'Technical Baseline Audit', 'Lessons Learned Retrieval'],
+    skills: [
+      { name: 'SEMP / SE Plan Auditor', live: false },
+      { name: 'Technical Baseline Audit', live: false },
+      { name: 'Lessons Learned Retrieval', live: false },
+    ],
   },
   {
     id: 'D7', name: 'Integration & Test', color: 'text-emerald-400',
-    skills: ['Anomaly Investigation Auditor', 'Config Audit Simulator (FCA/PCA)'],
+    skills: [
+      { name: 'Anomaly Investigation Auditor (AIA)', live: true },
+      { name: 'Config Audit Simulator (FCA/PCA)', live: false },
+    ],
   },
   {
     id: 'D8', name: 'Human Factors & Safety', color: 'text-pink-400',
-    skills: ['Human Factors Design Review', 'System Safety Hazard Analysis Auditor'],
+    skills: [
+      { name: 'Human Factors Design Review', live: false },
+      { name: 'System Safety Hazard Analysis Auditor', live: false },
+    ],
   },
+]
+
+const LIVE_SKILL_TABLE = [
+  { id: 'rqg', name: 'Requirements Quality Gate', agents: '4 (advocate, challenger, evaluator, sidecar)', structure: 'Phased (5+1)', standards: 'INCOSE GWR · NPR 7123.1 · IEEE 29148' },
+  { id: 'rta', name: 'Requirements Traceability Audit', agents: '4 (analyst, challenger, auditor, sidecar)', structure: 'Phased (5+1)', standards: 'IEEE 15288 §6.3.3 · NASA SE Handbook' },
+  { id: 'tsa', name: 'Trade Study Audit', agents: '3 (analyst, challenger, auditor)', structure: 'Round-robin (9)', standards: 'IEEE 1220-2005 · INCOSE §4.5' },
+  { id: 'icdc', name: 'ICD Consistency Checker', agents: '3 (advocate, challenger, cross-checker)', structure: 'Phased (5+1)', standards: 'IEEE 12207 · MIL-STD-961E' },
+  { id: 'cmw', name: 'ConOps / Mission Thread Walkthrough', agents: '3 (walker, challenger, perspective)', structure: 'Single phase (5)', standards: 'INCOSE §4.5 · DAU SE Brainbook' },
+  { id: 'sqr', name: 'Specification Quality Reviewer', agents: '3 (advocate, challenger, auditor)', structure: 'Phased (5+1)', standards: 'IEEE 29148 §5.2.5 · MIL-STD-961E' },
+  { id: 'drs', name: 'Design Review Simulation', agents: '3 (advocate, board-challenger, cross-checker)', structure: 'Phased (5+1)', standards: 'DAU SE Brainbook · MIL-STD-1521B' },
+  { id: 'aia', name: 'Anomaly Investigation Auditor', agents: '3 (advocate, challenger, auditor)', structure: 'Phased (5+1)', standards: 'MIL-STD-1629A · NASA RCA · SAE J1739' },
 ]
 
 const STANDARDS = [
@@ -205,13 +247,15 @@ export function Skills() {
         ))}
       </div>
 
-      <SectionLabel>Skill Inventory — 20 Skills, 8 Domains</SectionLabel>
+      <SectionLabel>Skill Inventory — 9 Live · 8 Domains</SectionLabel>
       <p className="text-slate-600 text-sm leading-relaxed mb-6 max-w-2xl">
         Each skill defines one SE process workflow producing one recognizable SE artifact. Skills contain
         zero orchestration code — they specify agents, documents, interactions, schemas, and deliverables.
+        Live skills are wired into the CLI and validated by the eval harness; planned skills follow the same
+        manifest shape.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-12">
         {DOMAINS.map((d) => (
           <div key={d.id} className="bg-slate-50 border border-slate-200 rounded-xl p-5">
             <div className="flex items-baseline gap-2 mb-3">
@@ -220,14 +264,55 @@ export function Skills() {
             </div>
             <ul className="space-y-1">
               {d.skills.map((s) => (
-                <li key={s} className="flex gap-2 text-slate-500 text-xs">
-                  <span className="text-slate-300 flex-shrink-0">•</span>
-                  <span>{s}</span>
+                <li key={s.name} className="flex gap-2 text-xs items-start">
+                  <span className={`flex-shrink-0 ${s.live ? 'text-emerald-500' : 'text-slate-300'}`}>
+                    {s.live ? '●' : '○'}
+                  </span>
+                  <span className={s.live ? 'text-slate-700' : 'text-slate-400'}>{s.name}</span>
                 </li>
               ))}
             </ul>
           </div>
         ))}
+      </div>
+
+      <div className="flex items-center gap-4 mb-14 text-xs text-slate-500">
+        <div className="flex items-center gap-1.5"><span className="text-emerald-500">●</span> live · validated</div>
+        <div className="flex items-center gap-1.5"><span className="text-slate-300">○</span> planned · same manifest shape</div>
+      </div>
+
+      <SectionLabel>Live Skills Detail</SectionLabel>
+      <p className="text-slate-600 text-sm leading-relaxed mb-6 max-w-2xl">
+        Nine production skills wired and tested end-to-end. Each manifest declares its agent team, turn
+        structure, and standards grounding; the engine handles the rest.
+      </p>
+      <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden mb-14">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-slate-100 border-b border-slate-200">
+              <th className="px-4 py-2.5 text-left text-[10px] font-bold uppercase tracking-widest text-slate-500">ID</th>
+              <th className="px-4 py-2.5 text-left text-[10px] font-bold uppercase tracking-widest text-slate-500">Name</th>
+              <th className="px-4 py-2.5 text-left text-[10px] font-bold uppercase tracking-widest text-slate-500">Agents</th>
+              <th className="px-4 py-2.5 text-left text-[10px] font-bold uppercase tracking-widest text-slate-500">Structure</th>
+              <th className="px-4 py-2.5 text-left text-[10px] font-bold uppercase tracking-widest text-slate-500">Standards</th>
+            </tr>
+          </thead>
+          <tbody>
+            {LIVE_SKILL_TABLE.map((s, i) => (
+              <tr key={s.id} className={i > 0 ? 'border-t border-slate-200' : ''}>
+                <td className="px-4 py-2.5 align-top">
+                  <code className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded text-[10px] font-mono font-semibold uppercase">
+                    {s.id}
+                  </code>
+                </td>
+                <td className="px-4 py-2.5 text-slate-700 text-xs align-top">{s.name}</td>
+                <td className="px-4 py-2.5 text-slate-500 text-xs align-top">{s.agents}</td>
+                <td className="px-4 py-2.5 text-slate-500 text-xs align-top whitespace-nowrap">{s.structure}</td>
+                <td className="px-4 py-2.5 text-slate-500 text-xs align-top">{s.standards}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       <SectionLabel>L0 — How a Skill Becomes Executable</SectionLabel>

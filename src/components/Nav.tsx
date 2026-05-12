@@ -7,6 +7,9 @@ export function Nav() {
         Joe Cohen
       </Link>
       <div className="ml-auto flex items-center gap-6">
+        <Link to="/journey" viewTransition className="text-white/60 hover:text-white text-sm transition-colors">
+          Journey
+        </Link>
         <Link to="/about" viewTransition className="text-white/60 hover:text-white text-sm transition-colors">
           About
         </Link>

@@ -6,6 +6,8 @@ import { VoyageProject } from './pages/VoyageProject'
 import { GarraProject } from './pages/GarraProject'
 import { SystemValidatorProject } from './pages/SystemValidatorProject'
 import { SepalProject } from './pages/SepalProject'
+import { CEIProject } from './pages/CEIProject'
+import { Journey } from './pages/Journey'
 import { NotFound } from './pages/NotFound'
 
 function Root() {
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
       { path: '/projects/garra', element: <GarraProject /> },
       { path: '/projects/claude-skills', element: <SystemValidatorProject /> },
       { path: '/projects/sepal', element: <SepalProject /> },
+      { path: '/projects/cei', element: <CEIProject /> },
+      { path: '/journey', element: <Journey /> },
       { path: '*', element: <NotFound /> },
     ],
   },

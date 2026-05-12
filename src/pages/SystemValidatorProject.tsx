@@ -133,6 +133,24 @@ export function SystemValidatorProject() {
       {/* Tab content */}
       <div className="px-6 lg:px-12 max-w-5xl mx-auto">
         <ActiveComponent />
+
+        <div className="mt-14 pt-8 pb-14 border-t border-slate-200">
+          <Link
+            to="/journey#process"
+            viewTransition
+            className="group/journey inline-flex items-center gap-2 text-slate-500 hover:text-violet-700 text-sm transition-colors mb-2"
+          >
+            Read where this fits in the journey
+            <span className="inline-block transition-transform duration-200 group-hover/journey:translate-x-1">→</span>
+          </Link>
+          <p className="text-xs text-slate-400 max-w-xl">
+            System Validator and Skill Auditor were the seed work — both have since been subsumed into{' '}
+            <Link to="/projects/cei" viewTransition className="text-violet-600 hover:text-violet-700 underline-offset-4 hover:underline">
+              Continuous Engineering Intelligence (CEI)
+            </Link>
+            , a broader process-learning platform.
+          </p>
+        </div>
       </div>
     </div>
   )

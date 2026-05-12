@@ -4,7 +4,7 @@ import { Nav } from '../components/Nav'
 import { LetterboxdFeed } from '../components/LetterboxdFeed'
 import { SysMLDiagram } from '../components/visuals/SysMLDiagram'
 import { HelicopterProfile } from '../components/visuals/HelicopterProfile'
-import { PipelineFlow } from '../components/visuals/PipelineFlow'
+import { CEILoop } from '../components/visuals/CEILoop'
 import { SepalStack } from '../components/visuals/SepalStack'
 import { VoyageGlobe } from '../components/visuals/VoyageGlobe'
 
@@ -62,22 +62,22 @@ const projects: Project[] = [
     Visual: VoyageVisual,
   },
   {
-    id: 'system-validator',
-    href: '/projects/claude-skills',
-    title: 'AI Agent Skills',
-    category: 'AI Engineering',
-    description: 'Claude Code skill suite — automated QA pipeline & post-run auditing',
-    tags: ['Claude Code', 'Multi-Agent', 'Systems Engineering', 'TypeScript'],
-    Visual: PipelineFlow,
+    id: 'cei',
+    href: '/projects/cei',
+    title: 'CEI',
+    category: 'AI + Process Intelligence',
+    description: 'Continuous Engineering Intelligence — learning layer that turns repeated agent friction into durable controls',
+    tags: ['10-Layer Loop', 'Promotion Gates', 'Multi-Project', 'TypeScript'],
+    Visual: CEILoop,
     skills: [
       {
         name: '/system-validation',
-        description: 'Multi-agent QA pipeline — Spec, Matrix, Executor, Reporter',
+        description: 'Multi-agent QA pipeline — Spec, Matrix, Executor, Reporter (CEI Reasoning Layer route)',
         href: 'https://github.com/joescohen/claude-skills',
       },
       {
         name: '/skill-auditor',
-        description: 'Post-run auditor — diagnoses pipeline gaps, applies fixes',
+        description: 'Post-run auditor — diagnoses pipeline gaps, applies fixes (CEI Reasoning Layer route)',
         href: 'https://github.com/joescohen/claude-skills',
       },
     ],
@@ -249,12 +249,39 @@ export function Home() {
           <h1 className="text-5xl sm:text-6xl font-extrabold text-white leading-[0.95] tracking-tight mb-3">
             Joe Cohen
           </h1>
-          <p className="text-white/70 text-base mb-1">
-            Systems Engineer · Northrop Grumman
+          <p className="text-white/80 text-base sm:text-lg mb-2 max-w-2xl leading-snug">
+            Systems engineer building the bridge between SE discipline and AI agent architecture.
           </p>
-          <p className="text-white/40 text-xs tracking-wide mb-8">
-            MS Systems Engineering · JHU &nbsp;·&nbsp; BS Aerospace Engineering · UMD
+          <p className="text-white/40 text-xs tracking-wide mb-6">
+            Systems Engineer · Northrop Grumman &nbsp;·&nbsp; MS SE · JHU &nbsp;·&nbsp; BS Aerospace · UMD
           </p>
+
+          <div className="border-l-2 border-orange-500/50 pl-4 mb-6 max-w-xl">
+            <p className="text-white/75 italic text-sm sm:text-base leading-relaxed">
+              &ldquo;I kept building AI agents and having the same thought: I&apos;ve done this before.&rdquo;
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 mb-10">
+            <Link
+              to="/journey"
+              viewTransition
+              className="group/cta inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-semibold px-5 py-2.5 rounded-sm text-sm transition-all shadow-[0_0_28px_-4px_rgba(249,115,22,0.45)]"
+            >
+              Read the journey
+              <span className="inline-block transition-transform duration-200 group-hover/cta:translate-x-1">→</span>
+            </Link>
+            <button
+              type="button"
+              onClick={() => {
+                setActiveTab('projects')
+                document.getElementById('home-project-list')?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              className="text-white/55 hover:text-white text-sm transition-colors"
+            >
+              Or see the projects ↓
+            </button>
+          </div>
 
           {/* Tabs flush at base of hero */}
           <div className="flex gap-0 -mb-px">
@@ -277,7 +304,7 @@ export function Home() {
 
       {/* Content */}
       <div ref={contentRef}>
-        <div style={{ display: activeTab === 'projects' ? 'block' : 'none' }}>
+        <div id="home-project-list" style={{ display: activeTab === 'projects' ? 'block' : 'none' }}>
           {projects.map((p, i) => (
             <ProjectStrip key={p.id} project={p} index={i} />
           ))}

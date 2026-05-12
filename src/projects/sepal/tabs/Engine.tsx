@@ -1,12 +1,15 @@
 import { SectionLabel } from '../../../components/SectionLabel'
 
 const ENGINE_COMPONENTS = [
-  { name: 'LLM Gateway', desc: 'Anthropic SDK wrapper — completeStructured<T>() via messages.parse() + zodOutputFormat(). All LLM calls go through here.' },
-  { name: 'Conductor', desc: 'Deterministic typed reducer. Drives turn order, phase transitions, exit criteria, posture interventions. No LLM orchestration.' },
-  { name: 'Prompt Assembler', desc: 'Builds system → grounding → tiered history → re-anchor → instruction on every turn. Re-injects constitutional principles each turn.' },
-  { name: 'Session / Checkpoint', desc: 'Atomic JSON checkpoint per turn. Resume from any checkpoint. Full session state serialized and recoverable.' },
-  { name: 'Deliverable Assembler', desc: 'Renders accumulated registers (RIDs, findings, scores) into Markdown, JSON, and XLSX — review-board-ready output.' },
-  { name: 'Quality Control', desc: 'Persona drift detection, adversarial posture monitoring, sycophancy alerts, context window management.' },
+  { name: 'LLM Gateway', desc: 'Single mandatory path. completeStructured<T>() via Anthropic messages.parse() + zodOutputFormat(). Schema retry (max 2), prompt caching, cost computation. Multi-vendor: AnthropicProvider + OpenAICompatProvider.' },
+  { name: 'Conductor', desc: 'Deterministic typed reducer. 20 event types. Drives turn order, phase transitions, entrance/exit criteria, HITL pause/resume, posture drift detection, RID rate decay. No LLM orchestration.' },
+  { name: 'Prompt Assembler', desc: 'Tiered assembly: system → constitution → grounding → tiered history → re-anchor → instruction. Citation enforcement: verbatim quote check against retrieved chunks. Context budget validation.' },
+  { name: 'Corpus & RAG', desc: '6 parsers (PDF / DOCX / XLSX / CSV / MD / TXT) → chunking → section mapping → LanceDB hybrid vector + BM25. CUI banner detection at ingestion — refuses, does not warn.' },
+  { name: 'Session', desc: 'runSession() async generator. Atomic JSON checkpoint per turn under ~/.sepal/sessions/. Resume contract pinned by (corpus-hash, skill-config-hash, model-date-suffix) — CI-tested.' },
+  { name: 'Tools', desc: '8 agent tools: document-retrieval, requirement-lookup, cross-reference-check, traceability-query, prior-session-query (with is_derived marker), prior-turn-query, session-state-query, standard-lookup.' },
+  { name: 'Deliverable Assembler', desc: '17 specialized renderers dispatched via RENDERER_REGISTRY (Record<DeliverableSectionKind, SectionRenderer>) — exhaustiveness compile-checked. JSON / Markdown / XLSX export, citation resolver.' },
+  { name: 'Telemetry', desc: 'Pino structured JSONL logs. Egress audit hook. LLM call records with token counts and cost. Error log redaction for Anthropic API errors.' },
+  { name: 'Runtime', desc: 'UUID generation, SHA-256 canonical hashing (RFC 8785 JCS), clock injection (test seam), centralized data root via resolveDataRoot() — ~/.sepal/ default, override SE_DATA_ROOT.' },
 ]
 
 const SAMPLE_RUN = `▶  Session started  [sess-abc123]  skill=rqg
@@ -24,14 +27,17 @@ const SAMPLE_RUN = `▶  Session started  [sess-abc123]  skill=rqg
 
 const TECH_STACK = [
   { concern: 'Language', choice: 'TypeScript 5.9 / Node 22 LTS' },
-  { concern: 'Packages', choice: 'pnpm monorepo (engine, skills, cli)' },
-  { concern: 'LLM Provider', choice: 'Anthropic SDK 0.94 — messages.parse() + zodOutputFormat()' },
-  { concern: 'Schemas', choice: 'Zod 4 (runtime + types + LLM output schemas)' },
-  { concern: 'Document Parsing', choice: 'unpdf (PDF), mammoth (DOCX), exceljs (XLSX), papaparse (CSV)' },
-  { concern: 'Vector Store', choice: 'LanceDB embedded (hybrid vector + BM25)' },
-  { concern: 'Embeddings', choice: 'Voyage voyage-3-large' },
-  { concern: 'Test', choice: 'Vitest' },
-  { concern: 'Build', choice: 'tsup + tsc project references' },
+  { concern: 'Packages', choice: 'pnpm monorepo — engine · skills · orchestrator · api · web · cli' },
+  { concern: 'LLM Providers', choice: 'Anthropic SDK 0.94 (Claude Opus/Sonnet/Haiku) + OpenAI-compat (GPT, DeepSeek) via MODEL_REGISTRY' },
+  { concern: 'Schemas', choice: 'Zod 4 — runtime validation + TS types + LLM output schemas (single source of truth)' },
+  { concern: 'Document Parsing', choice: 'unpdf + mupdf (PDF), mammoth (DOCX), exceljs (XLSX), papaparse (CSV), plus MD/TXT' },
+  { concern: 'Vector Store', choice: 'LanceDB 0.27 embedded — hybrid vector + BM25' },
+  { concern: 'Embeddings', choice: 'Voyage voyage-3-large primary, OpenAI fallback' },
+  { concern: 'L2 Persistence', choice: 'better-sqlite3 12.9 + Drizzle ORM 0.45 (WAL mode, 5 tables, 4 versioned migrations)' },
+  { concern: 'API Server', choice: 'Hono 4.12 + @hono/node-server + @hono/zod-validator · SSE via streamSSE() with JSONL replay' },
+  { concern: 'Web SPA', choice: 'React 19.2 · Vite 6.3 · TanStack Router 1.120 · TanStack Query · shadcn/ui · Tailwind 4.1 · Recharts 3.8' },
+  { concern: 'Concurrency', choice: 'p-limit 7 · Chokidar 5 (one-shot scan)' },
+  { concern: 'Tooling', choice: 'Biome (lint/format) · Vitest · tsx · tsup · Pino · Promptfoo (evals)' },
 ]
 
 // colours
@@ -288,8 +294,9 @@ export function Engine() {
     <div className="py-10">
       <SectionLabel>Engine Components</SectionLabel>
       <p className="text-slate-600 text-sm leading-relaxed mb-6 max-w-2xl">
-        The L1 process engine turns a skill definition + input documents into a structured deliverable.
-        Six subsystems handle the full lifecycle from document ingestion through deliverable assembly.
+        The L1 process engine is the leaf package: 131 source files, 71 test files, ~900 tests passing.
+        It turns a skill definition + input documents into a structured deliverable. Nine subsystems handle
+        the full lifecycle from corpus ingestion through deliverable assembly.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
@@ -297,6 +304,29 @@ export function Engine() {
           <div key={c.name} className="bg-slate-950 rounded-xl p-5">
             <div className="text-emerald-400 text-xs font-bold uppercase tracking-widest mb-2">{c.name}</div>
             <p className="text-white/60 text-xs leading-relaxed">{c.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <SectionLabel>By the numbers</SectionLabel>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-14">
+        {[
+          { n: '1,413', label: 'Tests passing' },
+          { n: '119', label: 'Test files' },
+          { n: '~250', label: 'Source files' },
+          { n: '21', label: 'API routes' },
+          { n: '17', label: 'Deliverable renderers' },
+          { n: '9', label: 'Production skills' },
+          { n: '9', label: 'Web pages' },
+          { n: '8', label: 'Agent tools' },
+          { n: '6', label: 'Agent archetypes' },
+          { n: '6', label: 'Document parsers' },
+          { n: '5', label: 'SQLite tables' },
+          { n: '113', label: 'Reqs delivered' },
+        ].map((s) => (
+          <div key={s.label} className="bg-slate-50 border border-slate-200 rounded-xl p-4 text-center">
+            <div className="text-emerald-700 text-xl font-extrabold mb-0.5">{s.n}</div>
+            <div className="text-slate-500 text-[10px] uppercase tracking-widest font-semibold">{s.label}</div>
           </div>
         ))}
       </div>
@@ -351,6 +381,35 @@ export function Engine() {
             )
           })}
         </pre>
+      </div>
+
+      <SectionLabel>CLI Surface</SectionLabel>
+      <p className="text-slate-600 text-sm leading-relaxed mb-4 max-w-2xl">
+        One binary, four verbs. <code className="text-slate-500 text-xs bg-slate-100 px-1 py-0.5 rounded">sepal run</code> drives
+        single skills; <code className="text-slate-500 text-xs bg-slate-100 px-1 py-0.5 rounded">sepal scan</code> walks a
+        program directory and chains skills automatically; <code className="text-slate-500 text-xs bg-slate-100 px-1 py-0.5 rounded">sepal serve</code> starts
+        the API + web dashboard.
+      </p>
+      <div className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden mb-14">
+        <table className="w-full text-sm">
+          <tbody>
+            {[
+              { cmd: 'sepal run <skill> --bundle <path>', desc: 'Execute one skill, write Markdown / XLSX / JSON deliverable' },
+              { cmd: 'sepal scan <dir>', desc: 'Auto-discover artifacts → classify → build DAG → execute chain → program report' },
+              { cmd: 'sepal serve [--port 3001]', desc: 'Start Hono API + SSE bridge; auto-resumes interrupted DAG chains' },
+              { cmd: 'sepal eval --skill <id>', desc: 'Promptfoo eval harness — precision / recall / F1 / Cohen\'s kappa' },
+              { cmd: 'sepal eval report <session-id>', desc: 'Generate inspection report from a session checkpoint' },
+              { cmd: 'sepal eval dashboard', desc: 'Aggregate telemetry into a cost & coverage dashboard' },
+            ].map((row, i) => (
+              <tr key={row.cmd} className={i > 0 ? 'border-t border-slate-200' : ''}>
+                <td className="px-5 py-3 align-top">
+                  <code className="text-emerald-700 text-xs font-mono">{row.cmd}</code>
+                </td>
+                <td className="px-5 py-3 text-slate-600 text-xs">{row.desc}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       <SectionLabel>Tech Stack</SectionLabel>

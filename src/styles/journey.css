@@ -1,0 +1,545 @@
+/* =====================================================================
+   Journey page — scoped design tokens, typography, animations.
+   All custom properties live under `.journey-page` so they cannot leak
+   into the rest of the portfolio site.
+   ===================================================================== */
+
+.journey-page {
+  /* Palette ----------------------------------------------------------- */
+  --jrn-bg: #0a0e1a;             /* deep navy-black, page background        */
+  --jrn-bg-elev: #11172a;        /* slightly elevated surface for cards     */
+  --jrn-rule: rgba(232, 230, 225, 0.08); /* hairline rules                  */
+  --jrn-rule-strong: rgba(232, 230, 225, 0.16);
+
+  --jrn-text: #e8e6e1;            /* primary body — warm off-white          */
+  --jrn-text-muted: rgba(232, 230, 225, 0.72);
+  --jrn-text-dim: rgba(232, 230, 225, 0.50);
+  --jrn-text-faint: rgba(232, 230, 225, 0.35);
+
+  --jrn-accent: #5eead4;          /* muted teal — chapter labels, dots      */
+  --jrn-accent-soft: rgba(94, 234, 212, 0.16);
+  --jrn-accent-dim: rgba(94, 234, 212, 0.35);
+
+  --jrn-warm: #c4a576;            /* warm tan — KeyInsight, year tags        */
+  --jrn-warm-soft: rgba(196, 165, 118, 0.12);
+  --jrn-warm-dim: rgba(196, 165, 118, 0.40);
+
+  /* Typography -------------------------------------------------------- */
+  --jrn-font-display: 'Fraunces', 'DM Serif Display', Georgia, serif;
+  --jrn-font-body: 'Inter', 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --jrn-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Spacing scale (px) ----------------------------------------------- */
+  --jrn-s-1: 4px;
+  --jrn-s-2: 8px;
+  --jrn-s-3: 16px;
+  --jrn-s-4: 24px;
+  --jrn-s-5: 32px;
+  --jrn-s-6: 48px;
+  --jrn-s-7: 64px;
+  --jrn-s-8: 96px;
+  --jrn-s-9: 128px;
+  --jrn-s-10: 192px;
+
+  background-color: var(--jrn-bg);
+  color: var(--jrn-text);
+  font-family: var(--jrn-font-body);
+  font-feature-settings: 'ss01', 'cv11';
+  line-height: 1.65;
+}
+
+/* Smooth scrolling — applied only when Journey route is active. */
+html.journey-active {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.journey-active {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hide scrollbars on the page background but keep them functional. */
+.journey-page .jrn-no-select {
+  user-select: none;
+}
+
+/* ====================== Typography primitives ======================= */
+
+.journey-page .jrn-mono {
+  font-family: var(--jrn-font-mono);
+  letter-spacing: 0.06em;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.journey-page .jrn-chapter-label {
+  font-family: var(--jrn-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--jrn-accent);
+  font-weight: 500;
+}
+
+.journey-page .jrn-chapter-title {
+  font-family: var(--jrn-font-display);
+  font-weight: 350;
+  font-style: normal;
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  color: var(--jrn-text);
+  margin: 0;
+}
+
+.journey-page .jrn-hero-title {
+  font-family: var(--jrn-font-display);
+  font-weight: 350;
+  font-size: clamp(2.75rem, 6.5vw, 5.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.022em;
+  color: var(--jrn-text);
+  margin: 0;
+}
+
+.journey-page .jrn-hook {
+  font-family: var(--jrn-font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--jrn-text-muted);
+  letter-spacing: -0.005em;
+}
+
+.journey-page .jrn-body {
+  font-size: 18px;
+  line-height: 1.78;
+  color: var(--jrn-text);
+}
+
+.journey-page .jrn-body-lead {
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.65;
+  color: var(--jrn-text-muted);
+}
+
+.journey-page .jrn-body p + p {
+  margin-top: 1.3em;
+}
+
+.journey-page .jrn-body strong {
+  color: var(--jrn-text);
+  font-weight: 600;
+}
+
+.journey-page .jrn-h3 {
+  font-family: var(--jrn-font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--jrn-text-muted);
+  margin: 0 0 0.5rem;
+}
+
+/* ======================= Section dividers =========================== */
+
+.journey-page .jrn-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--jrn-text-faint);
+  margin: var(--jrn-s-8) 0 var(--jrn-s-6);
+}
+
+.journey-page .jrn-divider::before,
+.journey-page .jrn-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--jrn-rule);
+}
+
+.journey-page .jrn-divider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--jrn-accent-dim);
+}
+
+/* ====================== ProjectCard styling ========================= */
+
+.journey-page .jrn-card {
+  background: var(--jrn-bg-elev);
+  border: 1px solid var(--jrn-rule);
+  border-radius: 4px;
+  padding: 28px 32px;
+  position: relative;
+  transition: border-color 220ms ease, background-color 220ms ease,
+              transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-page .jrn-card:hover {
+  border-color: var(--jrn-accent-dim);
+  background: #131a30;
+}
+
+.journey-page .jrn-card-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 16px;
+}
+
+.journey-page .jrn-card-title {
+  font-family: var(--jrn-font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--jrn-text);
+  margin: 0 0 4px;
+  letter-spacing: -0.005em;
+}
+
+.journey-page .jrn-card-year {
+  font-family: var(--jrn-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--jrn-warm);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.journey-page .jrn-card-body {
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--jrn-text-muted);
+}
+
+.journey-page .jrn-card-body p + p {
+  margin-top: 0.9em;
+}
+
+.journey-page .jrn-card-label {
+  font-family: var(--jrn-font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--jrn-accent);
+  margin: 18px 0 6px;
+  display: block;
+}
+
+.journey-page .jrn-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  font-family: var(--jrn-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--jrn-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.journey-page .jrn-card-link:hover {
+  border-bottom-color: var(--jrn-accent);
+  color: #84f3df;
+}
+
+.journey-page .jrn-card-link .arrow {
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-page .jrn-card-link:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ======================= KeyInsight block =========================== */
+
+.journey-page .jrn-insight {
+  border-left: 2px solid var(--jrn-warm);
+  padding: 8px 0 8px 24px;
+  margin: 28px 0;
+  font-family: var(--jrn-font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.125rem, 1.55vw, 1.4rem);
+  line-height: 1.55;
+  color: var(--jrn-text);
+  background: linear-gradient(
+    to right,
+    var(--jrn-warm-soft),
+    transparent 60%
+  );
+  letter-spacing: -0.003em;
+}
+
+/* ======================= Diagram frame ============================== */
+
+.journey-page .jrn-diagram-frame {
+  margin: 36px 0;
+  padding: 28px 28px 18px;
+  background: rgba(20, 26, 45, 0.55);
+  border: 1px solid var(--jrn-rule);
+  border-radius: 4px;
+}
+
+.journey-page .jrn-diagram-caption {
+  margin-top: 14px;
+  font-family: var(--jrn-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--jrn-text-dim);
+  text-align: center;
+}
+
+/* ======================= Progress rail ============================== */
+
+.journey-page .jrn-rail {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 48px;
+  width: 1px;
+  background: var(--jrn-rule);
+  z-index: 30;
+  display: none;
+  pointer-events: none;
+}
+
+.journey-page .jrn-rail-inner {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -8px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  pointer-events: auto;
+}
+
+.journey-page .jrn-rail-dot {
+  position: relative;
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.journey-page .jrn-rail-dot::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--jrn-text-faint);
+  transition: background-color 220ms ease, transform 220ms ease,
+              box-shadow 220ms ease;
+}
+
+.journey-page .jrn-rail-dot:hover::before {
+  background: var(--jrn-text-muted);
+}
+
+.journey-page .jrn-rail-dot[data-active='true']::before {
+  background: var(--jrn-accent);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 4px rgba(94, 234, 212, 0.12);
+}
+
+.journey-page .jrn-rail-label {
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--jrn-font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--jrn-text-dim);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.journey-page .jrn-rail-dot:hover .jrn-rail-label,
+.journey-page .jrn-rail-dot:focus-visible .jrn-rail-label,
+.journey-page .jrn-rail-dot[data-active='true'] .jrn-rail-label {
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .journey-page .jrn-rail {
+    display: block;
+  }
+}
+
+/* ======================= Focus visible ============================== */
+
+.journey-page :focus-visible {
+  outline: 2px solid var(--jrn-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ======================= Entrance animations ======================== */
+
+@keyframes jrn-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.journey-page .jrn-reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 720ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.journey-page .jrn-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.journey-page .jrn-stagger-1 { transition-delay: 0ms; }
+.journey-page .jrn-stagger-2 { transition-delay: 90ms; }
+.journey-page .jrn-stagger-3 { transition-delay: 180ms; }
+.journey-page .jrn-stagger-4 { transition-delay: 270ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-page .jrn-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .journey-page .jrn-card,
+  .journey-page .jrn-card-link .arrow,
+  .journey-page .jrn-rail-dot::before {
+    transition: none;
+  }
+}
+
+/* ======================= Contact block ============================== */
+
+.journey-page .jrn-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.journey-page .jrn-contact a {
+  font-family: var(--jrn-font-mono);
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+  color: var(--jrn-text-muted);
+  text-decoration: none;
+  display: inline-flex;
+  gap: 12px;
+  align-items: baseline;
+  border-bottom: 1px solid var(--jrn-rule);
+  padding-bottom: 10px;
+  transition: color 200ms ease, border-color 200ms ease;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.journey-page .jrn-contact a:hover {
+  color: var(--jrn-accent);
+  border-bottom-color: var(--jrn-accent-dim);
+}
+
+.journey-page .jrn-contact .label {
+  color: var(--jrn-text-faint);
+  min-width: 78px;
+}
+
+/* ======================= Hero scroll cue ============================ */
+
+@keyframes jrn-cue-bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+
+.journey-page .jrn-scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 36px;
+  font-family: var(--jrn-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--jrn-text-dim);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.journey-page .jrn-scroll-cue:hover {
+  color: var(--jrn-accent);
+}
+
+.journey-page .jrn-scroll-cue .arrow {
+  display: inline-block;
+  animation: jrn-cue-bob 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-page .jrn-scroll-cue .arrow {
+    animation: none;
+  }
+}
+
+/* ===================== Layout containers ============================ */
+
+.journey-page .jrn-container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 640px) {
+  .journey-page .jrn-container {
+    padding: 0 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .journey-page .jrn-container {
+    padding: 0 48px;
+  }
+}
+
+/* ===================== Section spacing ============================== */
+
+.journey-page section.jrn-chapter {
+  padding: var(--jrn-s-9) 0 var(--jrn-s-8);
+  scroll-margin-top: 60px;
+}
+
+.journey-page section.jrn-hero {
+  padding: var(--jrn-s-9) 0 var(--jrn-s-8);
+}
+
+/* Inline svg helpers */
+.journey-page svg.jrn-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}

@@ -67,6 +67,17 @@ export function ANGARSProject() {
 
       <div className="px-6 lg:px-12 py-8 max-w-5xl mx-auto">
         <ActiveComponent />
+
+        <div className="mt-14 pt-8 border-t border-slate-200">
+          <Link
+            to="/journey#foundation"
+            viewTransition
+            className="group/journey inline-flex items-center gap-2 text-slate-500 hover:text-orange-600 text-sm transition-colors"
+          >
+            Read where this fits in the journey
+            <span className="inline-block transition-transform duration-200 group-hover/journey:translate-x-1">→</span>
+          </Link>
+        </div>
       </div>
     </div>
   )
